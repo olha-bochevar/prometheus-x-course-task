@@ -20,7 +20,7 @@
 			"id": 2,
 			"author": "James Padolsey",
 			"price": 31.99,
-			"image": "",
+			"image": "./books/clean-code-in-javascript.jpg",
 			"title": "Clean Code in JavaScript",
 			"level": "Middle",
 			"tags": [
@@ -167,7 +167,7 @@
 			"id": 11,
 			"author": "Ido Green",
 			"price": 14.99,
-			"image": "",
+			"image": "./books/web_workers.jpeg",
 			"title": "Web Workers: Multithreaded Programs in JavaScript",
 			"level": "Pro",
 			"tags": [
