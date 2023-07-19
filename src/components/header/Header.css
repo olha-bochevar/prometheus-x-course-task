@@ -1,0 +1,70 @@
+/*------------------------- header ----------------------------------*/
+header.header {
+	width: 100%;
+	height: 100px;
+	padding: 1em;
+	border-bottom: 1px solid #000;
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
+	display: flex;
+	justify-content: space-between;
+}
+
+header.header > p > span {
+	text-transform: uppercase;
+}
+
+div.logo-content {
+	display: flex;
+	align-items: center;
+}
+
+header.header > div.logo-content > p > span {
+	text-transform: uppercase;
+	background: linear-gradient(
+			81.02deg,
+			rgb(250, 85, 96) -23.49%,
+			rgb(177, 75, 244) 45.66%,
+			rgb(77, 145, 255) 114.8%
+		)
+		text;
+}
+
+div > img {
+	max-width: 100%;
+	width: 100%;
+}
+
+.user-profile,
+.user-info {
+	display: flex;
+	align-items: center;
+}
+
+.cart,
+.user-avatar {
+	max-width: 3em;
+}
+
+.cart-icon {
+	width: 2.5em;
+	display: flex;
+	flex-direction: column;
+}
+
+.cart-icon > a {
+	width: 100%;
+}
+
+.user-profile > *:not(:last-child) {
+	margin-right: 1em;
+}
+
+.signout {
+	padding: 0.5em 1em;
+	border-radius: 5px;
+}
+
+.user-info > *:not(:last-child) {
+	margin-right: 0.5em;
+}

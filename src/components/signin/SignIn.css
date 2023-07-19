@@ -1,0 +1,60 @@
+section.signin {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 3rem;
+}
+
+div.auth {
+	flex: 0 1 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div.quote {
+	flex: 0 1 50%;
+	padding: 5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div.auth_avatar {
+	width: 160px;
+	height: 160px;
+	margin-bottom: 2em;
+}
+
+div.auth_avatar > img {
+	max-width: 100%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+form > label {
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+form > input[name='username'] {
+	text-align: center;
+}
+
+form > button {
+	margin-top: 1.5em;
+}
+
+form > button,
+form > input[name='username'] {
+	width: 200px;
+	padding: 0.5em;
+	border-radius: 5px;
+}
