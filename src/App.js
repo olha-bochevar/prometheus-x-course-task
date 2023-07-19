@@ -33,7 +33,7 @@ function App() {
 	useEffect(() => {
 		const fetchBooks = async () => {
 			try {
-				const response = await fetch('/books.json', {
+				const response = await fetch('data/books.json', {
 					headers: {
 						'Content-Type': 'application/json',
 						Accept: 'application/json',
