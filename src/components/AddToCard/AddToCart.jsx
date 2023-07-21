@@ -1,10 +1,12 @@
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useBooks } from '../../hooks/BooksContext';
+import { LocalStorageService, LS_KEYS } from '../../services/localStorage';
 import './AddToCart.css';
 
 export function AddToCart({ value: { price, amount, id } }) {
 	const { cart, setCart } = useBooks();
+
 	const [amountToBuy, setAmountToBuy] = useState(1);
 
 	const [totalPrice, setTotalPrice] = useState();
@@ -12,6 +14,17 @@ export function AddToCart({ value: { price, amount, id } }) {
 	const handleInputCountValue = ({ target: { value } }) => {
 		setAmountToBuy(value || '');
 	};
+
+	const updateValueOfAmountInputFromCart = () => {
+		return cart.filter((book) => book.id == id).map((book) => book.quantity);
+	};
+	useEffect(() => {
+		if (cart.find((book) => book.id === id)) {
+			const value = updateValueOfAmountInputFromCart();
+			setAmountToBuy(value);
+		}
+	}, [cart]);
+
 	useEffect(() => {
 		if (cart.find((book) => book.id === id)) {
 			setAmountToBuy(
@@ -39,10 +52,12 @@ export function AddToCart({ value: { price, amount, id } }) {
 				return item;
 			});
 			setCart(updatedItems);
+			LocalStorageService.set(LS_KEYS.CART, updatedItems);
 		} else {
 			// Якщо товару немає в корзині, додаємо
 			const newItem = { id: id, quantity: Number(amountToBuy) };
 			setCart([...cart, newItem]);
+			LocalStorageService.set(LS_KEYS.CART, [...cart, newItem]);
 		}
 	};
 

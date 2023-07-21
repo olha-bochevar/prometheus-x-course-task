@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBooks } from '../../hooks/BooksContext';
-import imgNotFoundBook from './../../assets/images/imageNotFound.png';
+import imageNotFound from 'images/imageNotFound.png';
 import './book-list.css';
 export function BookList() {
 	const { books } = useBooks();
@@ -58,7 +58,7 @@ export function BookList() {
 						<li key={book?.id}>
 							<div>
 								<img
-									src={book?.image ? book.image : imgNotFoundBook}
+									src={book?.image ? book.image : imageNotFound}
 									alt="Book's cover"
 								/>
 								<h5>

@@ -5,11 +5,28 @@ import shoppingCart from './../../assets/images/cart.svg';
 import './Header.css';
 import { useBooks } from '../../hooks/BooksContext';
 import { Link } from 'react-router-dom';
-//import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { LocalStorageService, LS_KEYS } from '../../services/localStorage';
 
 export function Header() {
 	const { isLoggedIn, user, logout } = useAuth();
-	const { cartAmountToBuy } = useBooks();
+	const { cartAmountToBuy, setCartAmountToBuy, cart, setCart } = useBooks();
+
+	useEffect(() => {
+		const cartData = LocalStorageService.get(LS_KEYS.CART);
+		if (cartData) {
+			setCart(cartData);
+		} else {
+			setCart([]);
+		}
+	}, []);
+
+	useEffect(() => {
+		const booksInTheCart = cart
+			.map((item) => item.quantity)
+			.reduce((acc, curr) => acc + curr, 0);
+		setCartAmountToBuy(booksInTheCart);
+	}, [cart]);
 
 	const navigate = useNavigate();
 	const handleSubmitSignOut = () => {
