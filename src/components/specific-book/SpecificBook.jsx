@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useBooks } from '../../hooks/BooksContext';
 import { AddToCart } from '../AddToCard/AddToCart';
 import './SpecificBook.css';
-import imageNotFound from 'images/imageNotFound.png';
+import imageNotFound from './../../assets/images/imageNotFound.png';
 export function SpecificBook() {
 	const { pageID } = useParams();
 	const { books } = useBooks();

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBooks } from '../../hooks/BooksContext';
-import imageNotFound from 'images/imageNotFound.png';
+import imageNotFound from './../../assets/images/imageNotFound.png';
 import './book-list.css';
 export function BookList() {
 	const { books } = useBooks();
