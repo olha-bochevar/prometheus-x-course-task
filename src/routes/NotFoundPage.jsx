@@ -1,3 +1,11 @@
+import { NotFound } from '../components/NotFound/NotFound';
+import { Footer } from '../components/footer/Footer';
+
 export function NotFoundPage() {
-	return <h1>404</h1>;
+	return (
+		<>
+			<NotFound />
+			<Footer />
+		</>
+	);
 }

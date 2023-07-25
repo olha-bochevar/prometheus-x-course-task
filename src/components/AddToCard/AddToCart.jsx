@@ -89,7 +89,11 @@ export function AddToCart({ value: { price, amount, id } }) {
 						{totalPrice}
 					</span>
 				</div>
-				<button type="submit" className="btn-add-cart" onClick={addToCart}>
+				<button
+					type="submit"
+					className="btn-add-cart button"
+					onClick={addToCart}
+				>
 					Add to cart
 				</button>
 			</form>

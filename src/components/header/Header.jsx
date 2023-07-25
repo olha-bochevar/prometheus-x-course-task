@@ -13,6 +13,7 @@ export function Header() {
 	const { cartAmountToBuy, setCartAmountToBuy, cart, setCart } = useBooks();
 
 	useEffect(() => {
+		console.log('header');
 		const cartData = LocalStorageService.get(LS_KEYS.CART);
 		if (cartData) {
 			setCart(cartData);

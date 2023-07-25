@@ -1,6 +1,6 @@
-export { HomePage } from './HomePage';
+export { ProductsPage } from './ProductsPage';
 export { Layout } from './Layout';
 export { NotFoundPage } from './NotFoundPage';
-export { ShoppingCart } from './ShoppingCart';
+export { CartPage } from './CartPage';
 export { SignInPage } from './SignInPage';
 export { BookPage } from './BookPage';

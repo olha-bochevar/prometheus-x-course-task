@@ -9,7 +9,9 @@ export function SignIn() {
 	const { login } = useAuth();
 	const [username, setUsername] = useState('');
 	const btnRef = useRef(null);
-
+	useEffect(() => {
+		btnRef.current.disabled = true;
+	}, []);
 	const handleInputUsernameValue = (event) => {
 		setUsername(event.target.value);
 
@@ -17,6 +19,7 @@ export function SignIn() {
 			btnRef.current.disabled = true;
 		} else {
 			btnRef.current.disabled = false;
+			btnRef.current.className = `signin__btn`;
 		}
 	};
 
@@ -37,37 +40,31 @@ export function SignIn() {
 	}, []);
 	return (
 		<section className="signin">
-			<div className="auth">
-				<div className="auth_avatar ">
-					<img src={avatar} alt="Avatar's picture" />
+			<div className="signin__container">
+				<div className="signin__auth-form">
+					<div className="signin__avatar">
+						<img src={avatar} alt="Avatar's picture" />
+					</div>
+					<form
+						className="signin__form form"
+						onSubmit={(e) => handleSubmitUsername(e, username)}
+					>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							className="signin__input"
+							placeholder="Type your username"
+							value={username}
+							onChange={handleInputUsernameValue}
+							required
+						/>
+
+						<button type="submit" ref={btnRef} disabled className="signin__btn">
+							Sign In
+						</button>
+					</form>
 				</div>
-				<form onSubmit={(e) => handleSubmitUsername(e, username)}>
-					<label htmlFor="username">Username</label>
-					<input
-						type="text"
-						name="username"
-						id="username"
-						placeholder="Type your username"
-						value={username}
-						onChange={handleInputUsernameValue}
-					/>
-					<button type="submit" ref={btnRef} disabled>
-						Sign In
-					</button>
-				</form>
-			</div>
-			<div className="qoute">
-				<figure>
-					<blockquote cite="https://www.huxley.net/bnw/four.html">
-						<p>
-							Words can be like X-rays, if you use them properly—they’ll go
-							through anything. You read and you’re pierced.
-						</p>
-					</blockquote>
-					<figcaption>
-						—Aldous Huxley, <cite>Brave New World</cite>
-					</figcaption>
-				</figure>
 			</div>
 		</section>
 	);

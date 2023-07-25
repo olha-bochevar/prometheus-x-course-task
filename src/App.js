@@ -1,9 +1,9 @@
 import { HashRouter, Route, Routes, Navigate, Outlet } from 'react-router-dom';
 import {
 	Layout,
-	HomePage,
+	ProductsPage,
 	BookPage,
-	ShoppingCart,
+	CartPage,
 	NotFoundPage,
 	SignInPage,
 } from './routes';
@@ -12,13 +12,13 @@ import { useAuth } from './hooks/AuthContext';
 import './App.css';
 import { useBooks } from './hooks/BooksContext';
 import { useEffect } from 'react';
+import { Header } from './components/Header/Header';
 
 function App() {
 	const { isLoggedIn } = useAuth();
-	const { cart, setCartAmountToBuy, cartAmountToBuy } = useBooks();
+	const { cart, setCartAmountToBuy } = useBooks();
 
 	useEffect(() => {
-		console.log(cart.length, cartAmountToBuy);
 		if (cart.length === 0) {
 			setCartAmountToBuy(0);
 		}
@@ -26,6 +26,7 @@ function App() {
 
 	return (
 		<HashRouter>
+			<Header />
 			<Routes>
 				<Route
 					path="/"
@@ -39,9 +40,9 @@ function App() {
 						)
 					}
 				>
-					<Route index element={<HomePage />} />
+					<Route index element={<ProductsPage />} />
 					<Route path="book/:pageID" element={<BookPage />} />
-					<Route path="cart" element={<ShoppingCart />} />
+					<Route path="cart" element={<CartPage />} />
 				</Route>
 				<Route path="login" element={<SignInPage />} />
 				<Route path="*" element={<NotFoundPage />} />

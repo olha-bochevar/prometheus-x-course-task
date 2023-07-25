@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		const userData = LocalStorageService.get(LS_KEYS.USERNAME) || null;
-		console.log(userData);
+
 		setUser(userData);
 		setIsLoggedIn(Boolean(userData));
 	}, []);
