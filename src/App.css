@@ -1,18 +1,16 @@
 /* reset styles */
-/* Указываем box sizing */
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Убираем внутренние отступы */
 ul[class],
 ol[class] {
     padding: 0;
 }
 
-/* Убираем внешние отступы */
 body,
 h1,
 h2,
@@ -30,10 +28,6 @@ dd {
     margin: 0;
 }
 
-/* html {
-  height: 100%;
-} */
-/* Выставляем основные настройки по-умолчанию для body */
 body {
     min-height: 100vh;
     scroll-behavior: smooth;
@@ -41,30 +35,25 @@ body {
     line-height: 1.5;
 }
 
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
 ol[class] {
     list-style: none;
 }
 
-/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a:not([class]) {
     text-decoration-skip-ink: auto;
     color: black;
 }
 
-/* Упрощаем работу с изображениями */
 img {
     max-width: 100%;
     display: block;
 }
 
-/* Указываем понятную периодичность в потоке данных у article*/
 article>*+* {
     margin-top: 1em;
 }
 
-/* Наследуем шрифты для инпутов и кнопок */
 input,
 button,
 textarea,
@@ -75,12 +64,6 @@ select {
 button {
     all: unset;
 }
-
-/* Chrome, Safari, Edge, Opera */
-/* input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-} */
 
 input:active,
 input:focus,
@@ -94,7 +77,6 @@ input[type='reset'] {
     border-radius: 0;
 }
 
-/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -106,68 +88,51 @@ input[type='reset'] {
 
 /*----------------------------------------------------------------*/
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;600;700;800;900&display=swap');
 
 /*----------------------------------------------------------------*/
 :root {
-    /* Background */
+
     --background-color: #ffffff;
-    /* Світло-сірий фон */
+
 
     /* Gradient */
-    --gradient: -webkit-linear-gradient(60deg, #fce7d1, #edc1db, #d5f0e4, #faedd6, #f7dbcf);
-    --dark-gradient: -webkit-linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    /* Header */
-    --header-background-color: var(--gradient);
-    --header-text-color: #333333;
-    /* Білий текст на градієнтному фоні */
+    --gradient: -webkit-linear-gradient(60deg,
+            #fce7d1,
+            #edc1db,
+            #d5f0e4,
+            #faedd6,
+            #f7dbcf);
+    --dark-gradient: -webkit-linear-gradient(60deg,
+            #f79533,
+            #f37055,
+            #ef4e7b,
+            #a166ab,
+            #5073b8,
+            #1098ad,
+            #07b39b,
+            #6fba82);
 
-    /* Main */
     --main-background-color: var(--background-color);
     --main-text-color: #333333;
-    /* Темно-сірий текст */
 
-    /* Footer */
-    --footer-background-color: var(--gradient);
-    --footer-text-color: #333333;
-    /* Білий текст на градієнтному фоні */
-
-    /* Buttons */
     --button-color-default-bg: var(--gradient);
     --button-color-default-text: #333;
-    /* Білий текст на градієнтному фоні */
     --button-color-active-bg: #e04a2b;
-    /* Замінюємо градієнт на один з кольорів для активної кнопки */
-    --button-color-active-text: #FFFFFF;
-    /* Білий текст на кольорі активної кнопки */
+    --button-color-active-text: #ffffff;
     --button-hover-color-bg: #b3557e;
-    /* Замінюємо градієнт на один з кольорів для стану наведення */
 
-    /* Links */
     --link-color: #5073b8;
-    /* Замінюємо градієнт на один з кольорів для посилань */
     --link-hover-color: #a166ab;
-    /* Замінюємо градієнт на один з кольорів для стану наведення */
 }
 
-
-
-
-
-
-
-
-
-
+/*----------------------------------------------------------------*/
 html,
 body {
     font-size: 16px;
     font-weight: 500;
     font-family: 'Ruda', Verdana, Geneva, Tahoma, sans-serif;
     height: 100vh;
-
 }
 
 body>* {
@@ -183,7 +148,6 @@ main {
 
 section {
     height: 100%;
-
 }
 
 .button {
@@ -195,19 +159,17 @@ section {
     background: var(--button-hover-color-bg);
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.7s ease;
+    transition: background 0.7s linear;
     text-align: center;
 }
 
 .button:hover {
     opacity: 0.9;
     background: var(--dark-gradient);
-
 }
 
-@media screen and (max-width : 1024px) {
+@media screen and (max-width: 1024px) {
     html {
         font-size: 14px;
     }
-
 }
