@@ -9,9 +9,9 @@ section.booklist h1 {
     font-size: 2rem;
 }
 
-.booklist__container {
+/* .booklist__container {
     padding: 1rem;
-}
+} */
 
 .booklist__filters {
     width: 100%;
@@ -78,7 +78,7 @@ section.booklist h1 {
 }
 
 .book__image {
-    width: 250px;
+    width: 100%;
     height: 328px;
     object-fit: cover;
     align-self: center;
@@ -129,6 +129,10 @@ section.booklist h1 {
 
     .booklist__filters>* {
         width: 45%;
+    }
+
+    .book__image {
+        width: 252px;
     }
 }
 

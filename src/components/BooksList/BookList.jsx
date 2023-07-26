@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useBooks } from '../../hooks/BooksContext';
+import { BackToTopButton } from '../BackToTopButton/BackToTopButton';
 import imageNotFound from './../../assets/images/imageNotFound.png';
 import './BookList.css';
 
@@ -109,6 +110,7 @@ export function BookList() {
 					</ul>
 				</div>
 			</div>
+			<BackToTopButton />
 		</section>
 	);
 }
