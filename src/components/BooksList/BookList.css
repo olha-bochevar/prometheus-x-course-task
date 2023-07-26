@@ -1,6 +1,6 @@
 section.booklist {
     width: 100%;
-    padding: 3rem;
+    padding: 3rem 5rem;
     background-color: var(--background-color);
 }
 
@@ -9,9 +9,7 @@ section.booklist h1 {
     font-size: 2rem;
 }
 
-/* .booklist__container {
-    padding: 1rem;
-} */
+
 
 .booklist__filters {
     width: 100%;
@@ -22,13 +20,14 @@ section.booklist h1 {
 }
 
 .booklist__filters>* {
-    width: 25%;
+
     padding: 0.5rem 1rem;
 }
 
 
 
 .booklist__filter-by-name {
+    width: 35%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -63,12 +62,12 @@ section.booklist h1 {
 .booklist__list {
     width: 100%;
     display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(200px, 1fr));
+    grid-template: auto / repeat(auto-fit, minmax(200px, max-content));
     gap: 3rem;
 
 }
 
-.booklist__book {}
+
 
 .book {
     display: flex;
@@ -78,8 +77,10 @@ section.booklist h1 {
 }
 
 .book__image {
+    /* width: 252px;
+    height: 328px; */
     width: 100%;
-    height: 328px;
+    height: 100%;
     object-fit: cover;
     align-self: center;
 }
@@ -124,19 +125,25 @@ section.booklist h1 {
 
 @media screen and (max-width : 800px) {
     section.booklist {
-        padding: 0 1rem;
+        padding: 0 3rem;
     }
 
     .booklist__filters>* {
         width: 45%;
     }
 
+    .booklist__filter-by-price {
+        all: unset;
+    }
+
     .book__image {
         width: 252px;
+        height: 100%;
     }
 }
 
 @media screen and (max-width : 420px) {
+
     .booklist__filters {
         flex-direction: column;
         gap: 1rem;
@@ -147,7 +154,9 @@ section.booklist h1 {
         width: 100%;
     }
 
-
+    .booklist__list {
+        justify-content: center;
+    }
 
     .book__image {
         align-self: center;

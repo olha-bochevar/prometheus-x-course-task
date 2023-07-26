@@ -8,12 +8,14 @@ export function NotFound() {
 					<p className="not-found-page__error">404</p>
 				</div>
 				<div className="not-found-page__text-content">
-					<h2 className="not-found-page__title">Упс! Ця сторінка не існує.</h2>
+					<h2 className="not-found-page__title">
+						Oops! That page doesn`t exist
+					</h2>
 					<p className="not-found-page__text-error">
-						Можливо, Ви вказали неправильний URL, або ця сторінка була видалена.
+						You may have typed the wrong URL or this page has been removed.
 					</p>
 					<Link to="/" className="not-found-page__link-home button">
-						До книжочок
+						Go back to books
 					</Link>
 				</div>
 			</div>

@@ -15,7 +15,6 @@ section.signin {
 
 .signin__auth-form {
     background: var(--gradient);
-
     width: 50%;
     height: 60%;
     aspect-ratio: 1/3;
@@ -73,8 +72,8 @@ section.signin {
 .signin__input:focus,
 .signin__input:hover {
     border: 2px solid transparent;
-    border-image: var(--dark-gradient);
-    border-image-slice: 1;
+border-image: var(--dark-gradient);
+border-image-slice: 1;
 }
 
 
@@ -94,10 +93,9 @@ section.signin {
     text-transform: uppercase;
     color: #f3f3f3;
     background: var(--dark-gradient);
-
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.7s ease;
+    transition: background 0.7s linear;
     text-align: center;
 }
 

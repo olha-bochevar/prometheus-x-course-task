@@ -60,15 +60,15 @@ export function BookList() {
 
 	return (
 		<section className="booklist">
-			<h1>Вітаємо! Обирайте книжечки!</h1>
+			<h1>Hello! Please, start to choose your book!</h1>
 			<div className="booklist__container">
 				<div className="booklist__filters">
 					<input
-						type="search"
+						type="text"
 						value={search}
 						onChange={handleSearchInputValue}
 						className="booklist__filter-by-name"
-						placeholder="Введіть назву книги"
+						placeholder="Type name of book"
 					/>
 					<select
 						value={filterPrice}
@@ -76,11 +76,11 @@ export function BookList() {
 						className="booklist__filter-by-price"
 					>
 						<option value="all" key="">
-							Всі
+							All
 						</option>
-						<option value="<15" key="15">{`0$ < Ціна < 15$`}</option>
-						<option value="<30" key="30">{`15$ < Ціна < 30$`}</option>
-						<option value="30+" key="30+">{`Ціна > 30$`}</option>
+						<option value="<15" key="15">{`0$ < price < 15$`}</option>
+						<option value="<30" key="30">{`15$ < price < 30$`}</option>
+						<option value="30+" key="30+">{`price > 30$`}</option>
 					</select>
 				</div>
 				<div className="booklist__catalog">
