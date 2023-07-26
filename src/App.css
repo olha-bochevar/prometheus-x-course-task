@@ -167,7 +167,7 @@ body {
     font-weight: 500;
     font-family: 'Ruda', Verdana, Geneva, Tahoma, sans-serif;
     height: 100vh;
-    background: var(--gradient);
+
 }
 
 body>* {
@@ -178,10 +178,12 @@ body>* {
 
 main {
     flex: 1 1 auto;
+    padding-top: 100px;
 }
 
 section {
     height: 100%;
+
 }
 
 .button {
