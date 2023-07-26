@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import './EmptyCart.css';
 import cartImage from './../../assets/images/cart_cat.png';
 
 export function EmptyCart() {
