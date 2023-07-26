@@ -33,10 +33,14 @@ export function CartWithBooks() {
 	};
 
 	return (
-		<div className="cart__with-books">
-			<h2>В Вашій корзині {cartAmountToBuy} книжок</h2>
+		<div className="cart__books-to-buy books-to-buy">
+			<h2>
+				You have {cartAmountToBuy > 1 ? `${cartAmountToBuy} books` : `1 book`}{' '}
+				in your cart
+			</h2>
+
 			<div>
-				<ul>
+				<ul className="books-to-buy__list">
 					{booksToBuy.map((book) => (
 						<BookInCart key={book?.id} id={book.id} value={book} />
 					))}
