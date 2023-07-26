@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useBooks } from '../../hooks/BooksContext';
 import { BookInCart } from './BookInCart';
 
 export function CartWithBooks() {
-	const { books, cart, cartAmountToBuy } = useBooks();
+	const { books, cart, setCart, cartAmountToBuy } = useBooks();
 	const [booksToBuy, setBooksToBuy] = useState([]);
 
 	useEffect(() => {
@@ -22,8 +22,18 @@ export function CartWithBooks() {
 		setBooksToBuy(tempBooks);
 	}, [cart]);
 
+	const btnRef = useRef(null);
+
+	useEffect(() => {
+		btnRef.current.disabled = cart.length >= 1 ? false : true;
+	}, [cart]);
+
+	const purchaseBooks = () => {
+		setCart([]);
+	};
+
 	return (
-		<section className="cart-with-books">
+		<div className="cart__with-books">
 			<h2>В Вашій корзині {cartAmountToBuy} книжок</h2>
 			<div>
 				<ul>
@@ -32,6 +42,9 @@ export function CartWithBooks() {
 					))}
 				</ul>
 			</div>
-		</section>
+			<button ref={btnRef} onClick={purchaseBooks} className="button">
+				Purchase
+			</button>
+		</div>
 	);
 }

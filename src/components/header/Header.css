@@ -8,13 +8,13 @@ header.header {
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--background-color);
+    background: var(--gradient);
     color: var(--header-text-color);
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid transparent;
+    /*   border-bottom: 2px solid transparent;
     border-image: var(--dark-gradient);
-    border-image-slice: 1;
+    border-image-slice: 1; */
 }
 
 header.header>p>span {
@@ -51,7 +51,7 @@ div>img {
     align-items: center;
 }
 
-.cart,
+.cart-icon,
 .user-avatar {
     max-width: 3em;
 }
