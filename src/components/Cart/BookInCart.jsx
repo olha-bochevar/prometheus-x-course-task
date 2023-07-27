@@ -3,6 +3,7 @@ import './BookInCart.css';
 import addBook from './../../assets/images/add.png';
 import deleteBook from './../../assets/images/delete.png';
 import removeBook from './../../assets/images/remove.png';
+import imageNotFound from './../../assets/images/imageNotFound.png';
 import { useBooks } from '../../hooks/BooksContext';
 
 export function BookInCart(props) {
@@ -49,7 +50,11 @@ export function BookInCart(props) {
 	return (
 		<>
 			<li ref={bookRef} className="books-to-buy__item book-item">
-				<img src={image} alt="Book`s cover" className="book-item__image" />
+				<img
+					src={image ? image : imageNotFound}
+					alt="Book`s cover"
+					className="book-item__image"
+				/>
 				<div className="book-item__info">
 					<p className="book-item__title">{title}</p>
 					<p className="book-item__author">{author}</p>

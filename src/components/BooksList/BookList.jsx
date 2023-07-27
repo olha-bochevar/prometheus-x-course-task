@@ -87,11 +87,13 @@ export function BookList() {
 					<ul className="booklist__list">
 						{filteredBooks.map((book) => (
 							<li key={book?.id} className="booklist__book book">
-								<img
-									src={book?.image ? book.image : imageNotFound}
-									alt="Book's cover"
-									className="book__image"
-								/>
+								<div className="book__image-wrapper">
+									<img
+										src={book?.image ? book.image : imageNotFound}
+										alt="Book's cover"
+										className="book__image"
+									/>
+								</div>
 
 								<h3 className="book__title">
 									{windowSize.width <= 420
