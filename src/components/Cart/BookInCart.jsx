@@ -44,7 +44,7 @@ export function BookInCart(props) {
 	useEffect(() => {
 		let temp = cart.filter((book) => book.quantity >= 1);
 		setCart(temp);
-	}, [cart]);
+	}, []);
 
 	return (
 		<>

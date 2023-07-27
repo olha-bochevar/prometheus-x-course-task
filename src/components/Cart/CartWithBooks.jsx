@@ -25,7 +25,7 @@ export function CartWithBooks() {
 	const btnRef = useRef(null);
 
 	useEffect(() => {
-		btnRef.current.disabled = cart.length >= 1 ? false : true;
+		btnRef.current.disabled = cart.length === 0;
 	}, [cart]);
 
 	const purchaseBooks = () => {

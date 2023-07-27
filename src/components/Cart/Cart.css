@@ -1,7 +1,7 @@
 .cart {
     width: 100%;
     padding: 3rem 5rem;
-    display: flex;
+
 }
 
 .cart__link {
@@ -21,6 +21,9 @@
 
 }
 
+.cart~.empty-cart {
+    display: flex;
+}
 
 
 
