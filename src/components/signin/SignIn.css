@@ -14,7 +14,7 @@ section.signin {
 }
 
 .signin__auth-form {
-    background: var(--gradient);
+    /* background: var(--gradient); */
     width: 50%;
     height: 60%;
     aspect-ratio: 1/3;
