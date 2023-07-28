@@ -5,22 +5,28 @@ import { BookInCart } from './BookInCart';
 export function CartWithBooks() {
 	const { books, cart, setCart, cartAmountToBuy } = useBooks();
 	const [booksToBuy, setBooksToBuy] = useState([]);
+	const [totalCost, setTotalCost] = useState(0);
+	useEffect(() => {
+		const total = cart.reduce(
+			(acc, curr) => acc + curr.price * curr.quantity,
+			0
+		);
+		setTotalCost(total);
+	}, [cart]);
 
 	useEffect(() => {
-		let tempBooks = [];
-
-		tempBooks = cart
-			.map((bookInCart) => books.find((item) => bookInCart.id === item.id))
-			.map((item) => {
-				const foundCartItem = cart.find((cartItem) => cartItem.id === item.id);
-				if (foundCartItem) {
-					return { ...item, quantity: foundCartItem.quantity };
+		const tempBooks = cart
+			.map((bookInCart) => {
+				const foundBook = books.find((item) => bookInCart.id === item.id);
+				if (foundBook) {
+					return { ...foundBook, quantity: bookInCart.quantity };
 				}
-				return item;
-			});
+				return null; // Обробка випадку, якщо книга не знайдена
+			})
+			.filter((book) => book !== null); // Видалення елементів зі значенням null
 
 		setBooksToBuy(tempBooks);
-	}, [cart]);
+	}, [cart, books]);
 
 	const btnRef = useRef(null);
 
@@ -46,9 +52,20 @@ export function CartWithBooks() {
 					))}
 				</ul>
 			</div>
-			<button ref={btnRef} onClick={purchaseBooks} className="button">
-				Purchase
-			</button>
+			<div className="books-to-buy__purchase purchase-block">
+				<div className="purchase-block__container">
+					<p className="purchase-block__text-content">
+						Total <span>{totalCost}</span>
+					</p>
+					<button
+						ref={btnRef}
+						onClick={purchaseBooks}
+						className="button purchase-block__button"
+					>
+						Purchase
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 }

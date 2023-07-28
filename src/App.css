@@ -124,6 +124,8 @@ input[type='reset'] {
 
     --link-color: #5073b8;
     --link-hover-color: #a166ab;
+
+    --border-color: #cccccc;
 }
 
 /*----------------------------------------------------------------*/
@@ -153,15 +155,16 @@ section {
 
 .button {
     display: block;
-    width: fit-content;
+
     text-decoration: none;
     text-transform: uppercase;
     color: #f3f3f3;
     background: var(--button-hover-color-bg);
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.7s linear;
+    transition: all 0.7s linear;
     text-align: center;
+    padding: 0.5rem 1rem;
 }
 
 .button:hover {

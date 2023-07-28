@@ -4,11 +4,14 @@
     padding: 1rem 0;
     width: 100%;
     display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(200px, 1fr));
+    grid-template: auto / repeat(auto-fit, minmax(100px, 1fr));
     place-items: center;
-    border-bottom: 1px solid #ccc;
+    gap: 1rem;
 }
 
+.book-item:not(:last-of-type) {
+    border-bottom: 1px solid var(--border-color);
+}
 
 
 .book-item__image {
@@ -39,4 +42,53 @@
 .book-item__btn {
     width: 1.5rem;
     cursor: pointer;
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .book-item {
+        grid-template-areas:
+            'image book-info remove-btn'
+            'image quantity-block total-price'
+        ;
+    }
+
+    .book-item__image {
+        grid-area: image;
+    }
+
+    .book-item__info {
+        grid-area: book-info;
+    }
+
+
+
+    .book-item__quantity-block {
+        grid-area: quantity-block;
+        justify-self: flex-start;
+    }
+
+    .book-item__total-price {
+        grid-area: total-price;
+        justify-self: flex-end;
+    }
+
+    .book-item__btn {
+        grid-area: remove-btn;
+        align-self: baseline;
+        justify-self: flex-end;
+        width: 25px;
+
+    }
+
+    .book-item__quantity-block>.book-item__btn {
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .book-item {
+        font-size: 1.2rem;
+    }
 }

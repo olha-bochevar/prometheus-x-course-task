@@ -55,7 +55,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 			LocalStorageService.set(LS_KEYS.CART, updatedItems);
 		} else {
 			// Якщо товару немає в корзині, додаємо
-			const newItem = { id: id, quantity: Number(amountToBuy) };
+			const newItem = { id: id, quantity: Number(amountToBuy), price: price };
 			setCart([...cart, newItem]);
 			LocalStorageService.set(LS_KEYS.CART, [...cart, newItem]);
 		}

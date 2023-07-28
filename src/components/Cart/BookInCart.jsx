@@ -28,9 +28,10 @@ export function BookInCart(props) {
 		setCart(updatedItems);
 	};
 	const deleteOneBook = () => {
-		if (cart.length === 0) {
-			btnDeleteRef.current.disabled = true;
-			setCart([]);
+		const foundBook = cart.find((book) => book.id === id);
+		if (foundBook.quantity === 1) {
+			let tempCart = cart.filter((book) => book !== foundBook);
+			setCart(tempCart);
 		} else {
 			const updatedItems = cart.map((item) => {
 				if (item.id === id) {
