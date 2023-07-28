@@ -4,22 +4,7 @@
 
 }
 
-.cart__link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    color: var(--text-color);
-    gap: 1rem;
-    margin: 2rem 0;
-    margin-bottom: 2rem;
-}
 
-.cart__link img {
-    flex: 0 0 5%;
-    width: 25px;
-
-}
 
 .cart~.empty-cart {
     display: flex;
@@ -134,15 +119,7 @@
         padding: 3rem 1rem;
     }
 
-    .cart__link {
-        margin: 2rem 0 1rem 0;
-        margin-bottom: 1rem;
-        font-size: 1rem;
-    }
 
-    .cart__link img {
-        width: 20px;
-    }
 
     .empty-cart__link {
         width: 50%;

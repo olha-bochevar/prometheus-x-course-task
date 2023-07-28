@@ -63,19 +63,16 @@ export function AddToCart({ value: { price, amount, id } }) {
 
 	return (
 		<section className="book-order">
-			<form action="/addtocart" method="post">
-				<div className="book-price">
+			<form>
+				<div className="book-order__price">
 					<span>Price, $</span>
-					<span id="price" className="price">
-						{price}
-					</span>
+					<span>{price}</span>
 				</div>
-				<div className="amount">
+				<div className="book-order__amount">
 					<label htmlFor="book-count">Count</label>
 					<input
 						type="number"
-						className="book-count"
-						id="book-count"
+						className="book-order__count"
 						name="book-count"
 						min={1}
 						max={amount}
@@ -83,15 +80,13 @@ export function AddToCart({ value: { price, amount, id } }) {
 						onInput={handleInputCountValue}
 					/>
 				</div>
-				<div className="book-total-price">
+				<div className="book-order__total">
 					<span>Total price</span>
-					<span id="total-price" className="total-price">
-						{totalPrice}
-					</span>
+					<span className="book-order__total-price">{totalPrice}</span>
 				</div>
 				<button
 					type="submit"
-					className="btn-add-cart button"
+					className="button book-order__btn"
 					onClick={addToCart}
 				>
 					Add to cart

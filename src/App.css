@@ -126,6 +126,8 @@ input[type='reset'] {
     --link-hover-color: #a166ab;
 
     --border-color: #cccccc;
+
+    --shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /*----------------------------------------------------------------*/
@@ -138,6 +140,8 @@ body {
 
 }
 
+
+
 body>* {
     display: flex;
     flex-direction: column;
@@ -145,8 +149,10 @@ body>* {
 }
 
 main {
+
     flex: 1 1 auto;
     padding-top: 100px;
+
 }
 
 section {

@@ -1,4 +1,4 @@
-import { SpecificBook } from '../components/specific-book/SpecificBook';
+import { SpecificBook } from '../components/SpecificBook/SpecificBook';
 
 export function BookPage() {
 	return <SpecificBook />;

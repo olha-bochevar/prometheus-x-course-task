@@ -1,0 +1,1 @@
+export { BackToCatalogPage } from './BackToCatalogPage';
