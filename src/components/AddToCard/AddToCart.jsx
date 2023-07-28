@@ -63,7 +63,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 
 	return (
 		<section className="book-order">
-			<form>
+			<div className="book-order__container">
 				<div className="book-order__price">
 					<span>Price, $</span>
 					<span>{price}</span>
@@ -91,7 +91,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 				>
 					Add to cart
 				</button>
-			</form>
+			</div>
 		</section>
 	);
 }

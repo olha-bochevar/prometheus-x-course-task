@@ -5,6 +5,7 @@ import { AddToCart } from '../AddToCard/AddToCart';
 import { BackToCatalogPage } from './../BackToCatalogPage/BackToCatalogPage';
 import './SpecificBook.css';
 import imageNotFound from './../../assets/images/imageNotFound.png';
+import { BackToTopButton } from '../BackToTopButton/BackToTopButton';
 
 export function SpecificBook() {
 	const { pageID } = useParams();
@@ -45,44 +46,38 @@ export function SpecificBook() {
 	};
 
 	return (
-		<>
-			<section className="specific-bookpage">
-				<BackToCatalogPage />
-				<div className="specific-bookpage__container">
-					<div className="specific-bookpage__book-info book-info__container">
-						<div className="book-info__details">
-							<div className="book-info__cover">
-								<img src={image ? image : imageNotFound} alt="Book's cover" />
-							</div>
-							<div className="book-info__text-content">
-								<div className="book-info__title">{title}</div>
-								<div className="book-info__author">{author}</div>
-								<div className="book-info__price">{`$${price}`}</div>
-								<div className="book-info__level">{`Level: ${level}`}</div>
-								<div>
-									<ul className="book-info__tags">
-										{tags.map((tag) => (
-											<li key={tag}>{tag}</li>
-										))}
-									</ul>
-								</div>
-								<div className="book-info__description">
-									<div className="book-info__description-wrapper">
-										<p className="book-info__description_title">Description</p>
-										<span onClick={showFullDesc}>Show full description</span>
-									</div>
-
-									<p>{isShownFullDesc ? description : shortDescription}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div className="specific-book__add-to-cart">
-						<AddToCart value={{ price, amount, id }} />
-					</div>
+		<section className="specific-bookpage">
+			<BackToCatalogPage />
+			<div className="specific-bookpage__container book-info">
+				<div className="book-info__cover">
+					<img src={image ? image : imageNotFound} alt="Book's cover" />
 				</div>
-			</section>
-		</>
+				<div className="book-info__title">{title}</div>
+				<div className="book-info__author">{author}</div>
+				<div className="book-info__price">{`$${price}`}</div>
+				<div className="book-info__level">
+					Level: <span>{level}</span>
+				</div>
+				<div className="book-info__tags">
+					<ul>
+						{tags.map((tag) => (
+							<li key={tag}>{tag}</li>
+						))}
+					</ul>
+				</div>
+				<div className="book-info__description">
+					<div className="book-info__description-wrapper">
+						<p className="book-info__description_title">Description</p>
+						<span onClick={showFullDesc}>Show full description</span>
+					</div>
+
+					<p>{isShownFullDesc ? description : shortDescription}</p>
+				</div>
+				<div className="book-info__book-order">
+					<AddToCart value={{ price, amount, id }} />
+				</div>
+			</div>
+			<BackToTopButton />
+		</section>
 	);
 }
