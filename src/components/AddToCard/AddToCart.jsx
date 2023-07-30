@@ -1,8 +1,9 @@
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useBooks } from '../../hooks/BooksContext';
-import { LocalStorageService, LS_KEYS } from '../../services/localStorage';
+//import { LocalStorageService, LS_KEYS } from '../../services/localStorage';
 import './AddToCart.css';
+import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
 
 export function AddToCart({ value: { price, amount, id } }) {
 	const { cart, setCart } = useBooks();
@@ -12,7 +13,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 	const [totalPrice, setTotalPrice] = useState();
 
 	const handleInputCountValue = ({ target: { value } }) => {
-		setAmountToBuy(value || '');
+		setAmountToBuy(+value || '');
 	};
 
 	const updateValueOfAmountInputFromCart = () => {
@@ -39,6 +40,13 @@ export function AddToCart({ value: { price, amount, id } }) {
 		}
 	}, [price, amountToBuy]);
 
+	const addOneBook = () => {
+		setAmountToBuy((prev) => (prev < amount ? prev + 1 : amount));
+	};
+	const deleteOneBook = () => {
+		setAmountToBuy((prev) => (prev > 1 ? prev - 1 : 1));
+	};
+
 	const addToCart = (e) => {
 		e.preventDefault();
 
@@ -52,12 +60,10 @@ export function AddToCart({ value: { price, amount, id } }) {
 				return item;
 			});
 			setCart(updatedItems);
-			LocalStorageService.set(LS_KEYS.CART, updatedItems);
 		} else {
 			// Якщо товару немає в корзині, додаємо
 			const newItem = { id: id, quantity: Number(amountToBuy), price: price };
 			setCart([...cart, newItem]);
-			LocalStorageService.set(LS_KEYS.CART, [...cart, newItem]);
 		}
 	};
 
@@ -70,15 +76,19 @@ export function AddToCart({ value: { price, amount, id } }) {
 				</div>
 				<div className="book-order__amount">
 					<label htmlFor="book-count">Count</label>
-					<input
-						type="number"
-						className="book-order__count"
-						name="book-count"
-						min={1}
-						max={amount}
-						value={amountToBuy}
-						onInput={handleInputCountValue}
-					/>
+
+					<ChangeAmountOfBook value={{ addOneBook, deleteOneBook }}>
+						<input
+							type="number"
+							className="book-order__count"
+							name="book-count"
+							min={1}
+							max={amount}
+							value={amountToBuy}
+							onInput={handleInputCountValue}
+							data-testid="total-price"
+						/>
+					</ChangeAmountOfBook>
 				</div>
 				<div className="book-order__total">
 					<span>Total price</span>

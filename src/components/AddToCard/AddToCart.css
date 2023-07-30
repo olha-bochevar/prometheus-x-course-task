@@ -21,33 +21,20 @@
     align-items: center;
 }
 
-
+.book-order__amount .quantity-block {
+    gap: 0.5rem;
+}
 
 .book-order__count {
     background: inherit;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    width: 5em;
+    width: 3rem;
     border-radius: 5px;
-    text-align: right;
+    text-align: center;
     font-weight: normal;
     padding: 0.5rem;
     position: relative;
 }
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    background: rgba(255, 255, 255, 0.5) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKUlEQVQYlWNgwAT/sYhhKPiPT+F/LJgEsHv37v+EMGkmkuImoh2NoQAANlcun/q4OoYAAAAASUVORK5CYII=) no-repeat center center;
-    width: 1em;
-    border-right: 1px solid #BBB;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-}
-
-
-
 
 
 .book-order__btn {

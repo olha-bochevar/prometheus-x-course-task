@@ -10,6 +10,11 @@ section.booklist h1 {
     font-size: 2rem;
 }
 
+.booklist__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .booklist__filters {
     width: 100%;
     height: 100px;

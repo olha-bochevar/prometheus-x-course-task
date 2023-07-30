@@ -32,12 +32,6 @@
     font-weight: 700;
 }
 
-.book-item__quantity-block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
 
 .book-item__btn {
     width: 1.5rem;
@@ -65,7 +59,7 @@
 
 
 
-    .book-item__quantity-block {
+    .quantity-block {
         grid-area: quantity-block;
         justify-self: flex-start;
     }
@@ -83,7 +77,7 @@
 
     }
 
-    .book-item__quantity-block>.book-item__btn {
+    .quantity-block>.book-item__btn {
         align-self: center;
     }
 }

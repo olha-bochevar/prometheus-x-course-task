@@ -1,0 +1,21 @@
+.quantity-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.quantity-block__btn {
+    width: 25px;
+}
+
+@media screen and (max-width: 800px) {
+    .quantity-block {
+        grid-area: quantity-block;
+        justify-self: flex-start;
+    }
+
+    .quantity-block>.book-item__btn {
+        align-self: center;
+    }
+}

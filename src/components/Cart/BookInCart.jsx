@@ -1,16 +1,15 @@
 import { useEffect, useRef /*, useState , useEffect*/ } from 'react';
 import './BookInCart.css';
-import addBook from './../../assets/images/add.png';
-import deleteBook from './../../assets/images/delete.png';
+
 import removeBook from './../../assets/images/remove.png';
 import imageNotFound from './../../assets/images/imageNotFound.png';
 import { useBooks } from '../../hooks/BooksContext';
+import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
 
 export function BookInCart(props) {
 	const { cart, setCart } = useBooks();
 
 	const bookRef = useRef(null);
-	const btnDeleteRef = useRef(null);
 
 	const { title, author, image, price, quantity, id } = props.value;
 
@@ -61,19 +60,10 @@ export function BookInCart(props) {
 					<p className="book-item__author">{author}</p>
 					<span className="book-item__price">{price}</span>
 				</div>
-				<div className="book-item__quantity-block">
-					<button
-						className="book-item__btn remove"
-						onClick={deleteOneBook}
-						ref={btnDeleteRef}
-					>
-						<img src={deleteBook} alt="Remove book from the cart" />
-					</button>
+
+				<ChangeAmountOfBook value={{ addOneBook, deleteOneBook }}>
 					<span className="book-item__quantity">{quantity}</span>
-					<button className="book-item__btn add" onClick={addOneBook}>
-						<img src={addBook} alt="Add book to the cart" />
-					</button>
-				</div>
+				</ChangeAmountOfBook>
 				<p className="book-item__total-price">{price * quantity}</p>
 				<button className="book-item__btn" onClick={removeItemFromCart}>
 					<img src={removeBook} alt="Remove book" />

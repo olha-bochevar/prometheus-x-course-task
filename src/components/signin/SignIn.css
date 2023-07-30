@@ -25,7 +25,6 @@
     background-image: var(--gradient);
 }
 
-
 .signin__container {
     height: 100%;
     display: flex;
@@ -36,9 +35,8 @@
 }
 
 .signin__auth-form {
-
     width: 40%;
-
+    max-width: 600px;
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -50,7 +48,6 @@
     border-right: 1px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-
 }
 
 .signin__avatar {
@@ -76,11 +73,8 @@
     margin-bottom: 0.5em;
 }
 
-
-
 .signin__input,
 .signin__input::placeholder {
-
     text-align: center;
     outline: none;
     background: var(--dark-gradient);
@@ -98,15 +92,12 @@
     border-image-slice: 1;
 }
 
-
 .signin__auth-form form>button,
 .signin__auth-form form>input[name='username'] {
     width: 70%;
     height: 3rem;
     border-radius: 5px;
 }
-
-
 
 .signin__btn {
     display: block;
@@ -124,7 +115,6 @@
 .signin__btn:hover {
     opacity: 0.9;
     background: var(--button-color-active-bg);
-
 }
 
 .signin__btn:disabled {
@@ -136,8 +126,7 @@
     background: var(--dark-gradient);
 }
 
-
-@media screen and (max-width : 1024px) {
+@media screen and (max-width: 1024px) {
 
     .signin__auth-form form>button,
     .signin__auth-form form>input[name='username'] {
@@ -146,16 +135,13 @@
     }
 }
 
-@media screen and (max-width : 800px) {
+@media screen and (max-width: 800px) {
     .signin__container {
         padding: 0 1rem;
     }
 
     .signin__auth-form {
         width: 75%;
-
-
-
     }
 
     .signin__auth-form form>button,
@@ -167,7 +153,7 @@
     }
 }
 
-@media screen and (max-width : 420px) {
+@media screen and (max-width: 420px) {
     .signin__auth-form {
         padding: 1rem;
         width: 90%;

@@ -11,7 +11,7 @@ export function CartWithBooks() {
 			(acc, curr) => acc + curr.price * curr.quantity,
 			0
 		);
-		setTotalCost(total);
+		setTotalCost(total.toFixed(2));
 	}, [cart]);
 
 	useEffect(() => {

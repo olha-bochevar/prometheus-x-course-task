@@ -6,20 +6,12 @@ import './Header.css';
 import { useBooks } from '../../hooks/BooksContext';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { LocalStorageService, LS_KEYS } from '../../services/localStorage';
+import { useWindowWidth } from '../../hooks/useWindowWidth';
 
 export function Header() {
 	const { isLoggedIn, user, logout } = useAuth();
 	const { cartAmountToBuy, setCartAmountToBuy, cart, setCart } = useBooks();
-
-	useEffect(() => {
-		const cartData = LocalStorageService.get(LS_KEYS.CART);
-		if (cartData) {
-			setCart(cartData);
-		} else {
-			setCart([]);
-		}
-	}, []);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const booksInTheCart = cart
@@ -28,48 +20,59 @@ export function Header() {
 		setCartAmountToBuy(booksInTheCart);
 	}, [cart]);
 
-	const navigate = useNavigate();
 	const handleSubmitSignOut = () => {
 		logout();
-
+		setCart([]);
 		navigate('/');
 	};
+	const { windowSize } = useWindowWidth();
 
 	return (
 		<header className="header">
 			<div className="header__logo logo-content">
 				<p>
-					<span>IT Bookstore / </span>
+					<span>IT Bookstore</span>
 					<a
 						href="https://github.com/olha-bochevar"
 						target="_blank"
 						title="Go to Github's profile"
 						rel="noreferrer"
 					>
-						Olha Bochevar
+						/ Olha Bochevar
 					</a>
 				</p>
 			</div>
 			{isLoggedIn && (
 				<div className="header__user-profile user-profile">
-					<div className="cart-icon">
+					<div className="user-profile__cart-icon">
 						<Link to="/cart">
 							<img src={shoppingCart} alt="cart" />
 						</Link>
-						<sup>{cartAmountToBuy}</sup>
+						<sup className={cartAmountToBuy > 0 ? 'active' : ''}>
+							{cartAmountToBuy}
+						</sup>
 					</div>
-					<button
-						type="submit"
-						className="signout"
-						onClick={handleSubmitSignOut}
-					>
-						Sign Out
-					</button>
-					<figure className="user-info">
+					{windowSize.width > 420 && (
+						<button
+							type="submit"
+							className="user-profile__signout"
+							onClick={handleSubmitSignOut}
+						>
+							Sign Out
+						</button>
+					)}
+
+					<figure className="user-profile__info">
+						<figcaption>{user}</figcaption>
 						<div className="user-avatar">
 							<img src={avatar} alt="User's avatar" />
 						</div>
-						<figcaption>{user}</figcaption>
+						{windowSize.width <= 420 && (
+							<button
+								className="user-profile__signout-btn"
+								onClick={handleSubmitSignOut}
+							></button>
+						)}
 					</figure>
 				</div>
 			)}

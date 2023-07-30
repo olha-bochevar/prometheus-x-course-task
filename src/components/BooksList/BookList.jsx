@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useBooks } from '../../hooks/BooksContext';
+import { useWindowWidth } from '../../hooks/useWindowWidth';
 import { BackToTopButton } from '../BackToTopButton/BackToTopButton';
 import imageNotFound from './../../assets/images/imageNotFound.png';
 import './BookList.css';
@@ -9,6 +10,7 @@ export function BookList() {
 	const { books } = useBooks();
 	const [search, setSearch] = useState('');
 	const [filterPrice, setFilterPrice] = useState('all');
+	const { windowSize } = useWindowWidth();
 
 	const handleSearchInputValue = ({ target: { value } }) => {
 		setSearch(value);
@@ -36,24 +38,6 @@ export function BookList() {
 	);
 
 	// для max-width : 420px будемо показувати повну назву, для більших екранів - скорочуємо назву до 24 символів
-	const [windowSize, setWindowSize] = useState({
-		width: window.innerWidth,
-	});
-
-	const handleResize = () => {
-		setWindowSize({
-			width: window.innerWidth,
-		});
-	};
-
-	useEffect(() => {
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
-
 	const sliceNameOfBook = (title) => {
 		return title.length > 24 ? title.substring(0, 24).concat('...') : title;
 	};
