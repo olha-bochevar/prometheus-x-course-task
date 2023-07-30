@@ -7,7 +7,7 @@ export function ChangeAmountOfBook({ value, children }) {
 	return (
 		<div className="quantity-block" data-testid="quantity">
 			<button
-				className="quantity-block__btn remove"
+				className="quantity-block__btn quantity-block__btn_remove"
 				onClick={deleteOneBook}
 				data-testid="decrease-btn"
 			>
@@ -15,7 +15,7 @@ export function ChangeAmountOfBook({ value, children }) {
 			</button>
 			{children}
 			<button
-				className="quantity-block__btn add"
+				className="quantity-block__btn quantity-block__btn_add"
 				onClick={addOneBook}
 				data-testid="increase-btn"
 			>

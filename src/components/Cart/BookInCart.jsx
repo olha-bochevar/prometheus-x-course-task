@@ -1,7 +1,6 @@
 import { useEffect, useRef /*, useState , useEffect*/ } from 'react';
 import './BookInCart.css';
 
-import removeBook from './../../assets/images/remove.png';
 import imageNotFound from './../../assets/images/imageNotFound.png';
 import { useBooks } from '../../hooks/BooksContext';
 import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
@@ -65,9 +64,10 @@ export function BookInCart(props) {
 					<span className="book-item__quantity">{quantity}</span>
 				</ChangeAmountOfBook>
 				<p className="book-item__total-price">{price * quantity}</p>
-				<button className="book-item__btn" onClick={removeItemFromCart}>
-					<img src={removeBook} alt="Remove book" />
-				</button>
+				<button
+					className="book-item__btn"
+					onClick={removeItemFromCart}
+				></button>
 			</li>
 		</>
 	);

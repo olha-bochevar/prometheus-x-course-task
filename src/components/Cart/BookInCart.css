@@ -2,7 +2,6 @@
     width: 100%;
     font-size: 1.5rem;
     padding: 1rem 0;
-    width: 100%;
     display: grid;
     grid-template: auto / repeat(auto-fit, minmax(100px, 1fr));
     place-items: center;
@@ -36,9 +35,23 @@
 .book-item__btn {
     width: 1.5rem;
     cursor: pointer;
-
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
+.book-item__btn::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-image: url("./../../assets/images/remove.png");
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
 
 @media screen and (max-width: 800px) {
     .book-item {

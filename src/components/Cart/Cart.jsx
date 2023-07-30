@@ -11,14 +11,16 @@ export function Cart() {
 
 	return (
 		<section className="cart">
-			{cart.length === 0 && <EmptyCart />}
+			<div className="cart__container">
+				{cart.length === 0 && <EmptyCart />}
 
-			{cart.length > 0 && (
-				<>
-					<BackToCatalogPage />
-					<CartWithBooks />
-				</>
-			)}
+				{cart.length > 0 && (
+					<>
+						<BackToCatalogPage />
+						<CartWithBooks />
+					</>
+				)}
+			</div>
 		</section>
 	);
 }
