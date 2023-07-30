@@ -73,13 +73,15 @@ section.booklist h1 {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
+    justify-content: space-between;
     max-height: 600px;
     max-width: 250px;
 }
 
 .book__image-wrapper {
-    height: 100%;
+    width: 215px;
+    aspect-ratio: 3/4;
+    overflow: hidden;
 }
 
 .book__image {
