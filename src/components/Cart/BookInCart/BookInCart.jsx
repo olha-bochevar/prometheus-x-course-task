@@ -1,9 +1,9 @@
 import { useEffect, useRef /*, useState , useEffect*/ } from 'react';
 import './BookInCart.css';
 
-import imageNotFound from './../../assets/images/imageNotFound.png';
-import { useBooks } from '../../hooks/BooksContext';
-import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
+import imageNotFound from './../../../assets/images/imageNotFound.png';
+import { useBooks } from '../../../hooks/BooksContext';
+import { ChangeAmountOfBook } from '../../ChangeAmountOfBook/ChangeAmountOfBook';
 
 export function BookInCart(props) {
 	const { cart, setCart } = useBooks();
@@ -63,7 +63,9 @@ export function BookInCart(props) {
 				<ChangeAmountOfBook value={{ addOneBook, deleteOneBook }}>
 					<span className="book-item__quantity">{quantity}</span>
 				</ChangeAmountOfBook>
-				<p className="book-item__total-price">{price * quantity}</p>
+				<p className="book-item__total-price">
+					{(price * quantity).toFixed(2)}
+				</p>
 				<button
 					className="book-item__btn"
 					onClick={removeItemFromCart}

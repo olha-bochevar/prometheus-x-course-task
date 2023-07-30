@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { useBooks } from '../../hooks/BooksContext';
-import { BookInCart } from './BookInCart';
+import { useBooks } from '../../../hooks/BooksContext';
+import { BookInCart } from '../BookInCart/BookInCart';
+import './CartWithBooks.css';
 
 export function CartWithBooks() {
 	const { books, cart, setCart, cartAmountToBuy } = useBooks();

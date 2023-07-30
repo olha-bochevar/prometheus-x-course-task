@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import cartImage from './../../assets/images/cart_cat.png';
-
+import cartImage from './../../../assets/images/cart_cat.png';
+import './EmptyCart.css';
 export function EmptyCart() {
 	return (
 		<div className="cart__empty-cart empty-cart">

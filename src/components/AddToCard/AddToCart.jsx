@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useBooks } from '../../hooks/BooksContext';
-//import { LocalStorageService, LS_KEYS } from '../../services/localStorage';
+
 import './AddToCart.css';
 import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
 
@@ -13,7 +13,11 @@ export function AddToCart({ value: { price, amount, id } }) {
 	const [totalPrice, setTotalPrice] = useState();
 
 	const handleInputCountValue = ({ target: { value } }) => {
-		setAmountToBuy(+value || '');
+		if (value < 1 || value > amount) {
+			setAmountToBuy(1);
+		} else {
+			setAmountToBuy(+value || '');
+		}
 	};
 
 	const updateValueOfAmountInputFromCart = () => {
@@ -41,10 +45,10 @@ export function AddToCart({ value: { price, amount, id } }) {
 	}, [price, amountToBuy]);
 
 	const addOneBook = () => {
-		setAmountToBuy((prev) => (prev < amount ? prev + 1 : amount));
+		setAmountToBuy((prev) => (prev < amount ? +prev + 1 : amount));
 	};
 	const deleteOneBook = () => {
-		setAmountToBuy((prev) => (prev > 1 ? prev - 1 : 1));
+		setAmountToBuy((prev) => (prev > 1 ? +prev - 1 : 1));
 	};
 
 	const addToCart = (e) => {
@@ -86,13 +90,16 @@ export function AddToCart({ value: { price, amount, id } }) {
 							max={amount}
 							value={amountToBuy}
 							onInput={handleInputCountValue}
-							data-testid="total-price"
+							data-testid="amount"
+							title={`Max quantity - ${amount}`}
 						/>
 					</ChangeAmountOfBook>
 				</div>
 				<div className="book-order__total">
 					<span>Total price</span>
-					<span className="book-order__total-price">{totalPrice}</span>
+					<span className="book-order__total-price" data-testid="total-price">
+						{totalPrice}
+					</span>
 				</div>
 				<button
 					type="submit"

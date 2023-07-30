@@ -1,137 +1,21 @@
 .cart {
-    width: 100%;
-    padding: 3rem 5rem;
-
+	width: 100%;
+	padding: 3rem 5rem;
 }
 
 .cart__container {
-    max-width: 1200px;
-    margin: 0 auto;
+	max-width: 1200px;
+	margin: 0 auto;
 }
-
-.cart~.empty-cart {
-    display: flex;
-}
-
-
-
-/*  EMPTY CART */
-.empty-cart {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.empty-cart__image {
-    width: 25%;
-}
-
-.empty-cart__link {
-    padding: 0.5rem 2rem;
-}
-
-
-
-
-
-/* CART BOOKS-TO-BUY */
-.books-to-buy {
-
-    margin-bottom: 3rem;
-}
-
-.books-to-buy__list {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-}
-
-.books-to-buy h2 {
-    margin-bottom: 3rem;
-}
-
-/* CART BOOKS-TO-BUY PURCHASE */
-.purchase-block {
-
-    width: 100%;
-    padding: 1rem 2rem;
-    margin: 2rem 0;
-    display: flex;
-
-    justify-content: flex-end;
-
-
-}
-
-.purchase-block__container {
-    flex: 0 1 25%;
-    padding: 2rem 0;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.purchase-block__text-content {
-    font-weight: 900;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.purchase-block__button {
-    font-weight: 700;
-    max-width: 100%;
-}
-
-
-
 
 @media screen and (max-width: 800px) {
-    .cart {
-        padding: 3rem;
-    }
-
-    .empty-cart {
-        gap: 2rem;
-    }
-
-    .empty-cart__image {
-        width: 40%;
-    }
-
-    .empty-cart__link {
-        width: 75%;
-    }
-
-    .purchase-block__container {
-        flex: 0 1 70%;
-        margin: 2rem auto;
-
-    }
+	.cart {
+		padding: 3rem;
+	}
 }
 
 @media screen and (max-width: 420px) {
-    .cart {
-        padding: 3rem 1rem;
-    }
-
-
-
-    .empty-cart__link {
-        width: 50%;
-    }
-
-    .purchase-block__container {
-        flex: 1 1 100%;
-    }
+	.cart {
+		padding: 3rem 1rem;
+	}
 }

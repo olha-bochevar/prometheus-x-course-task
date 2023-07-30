@@ -1,7 +1,7 @@
 import { useBooks } from '../../hooks/BooksContext';
-import { CartWithBooks } from './CartWithBooks';
+import { CartWithBooks } from './CartWithBooks/CartWithBooks';
 //import { BookInCart } from './BookInCart';
-import { EmptyCart } from './EmptyCart';
+import { EmptyCart } from './EmptyCart/EmptyCart';
 
 import './Cart.css';
 import { BackToCatalogPage } from '../BackToCatalogPage/BackToCatalogPage';
