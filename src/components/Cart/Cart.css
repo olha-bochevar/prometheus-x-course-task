@@ -111,7 +111,9 @@
     }
 
     .purchase-block__container {
-        flex: 0 1 50%;
+        flex: 0 1 70%;
+        margin: 2rem auto;
+
     }
 }
 
