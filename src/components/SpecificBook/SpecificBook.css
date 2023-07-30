@@ -1,220 +1,223 @@
 .specific-bookpage {
-    padding: 3rem;
-    --viewport-width: 100vw;
-    --viewport-height: 100vh;
+	padding: 3rem;
+	--viewport-width: 100vw;
+	--viewport-height: 100vh;
 
-    /* Визначаємо змінні для розмірів чверті екрану */
-    --quarter-width: calc(var(--viewport-width) / 4);
-    --quarter-height: calc(var(--viewport-height) / 4);
+	/* Визначаємо змінні для розмірів чверті екрану */
+	--quarter-width: calc(var(--viewport-width) / 4);
+	--quarter-height: calc(var(--viewport-height) / 4);
 
-    /* Визначаємо змінні для координат радіусу градієнту */
-    --center-x: calc(var(--viewport-width) - var(--quarter-width) + 250px);
-    --center-y: calc(var(--viewport-height) - var(--quarter-height) + 100px);
+	/* Визначаємо змінні для координат радіусу градієнту */
+	--center-x: calc(var(--viewport-width) - var(--quarter-width) + 250px);
+	--center-y: calc(var(--viewport-height) - var(--quarter-height) + 100px);
 
-    /* Визначаємо змінну для градієнту */
-    --gradient: radial-gradient(circle at var(--center-x) var(--center-y),
-            #fce7d1,
-            #edc1db,
-            #d5f0e4,
-            #faedd6,
-            #f7dbcf 30%,
-            transparent 70%);
+	/* Визначаємо змінну для градієнту */
+	--gradient: radial-gradient(
+		circle at var(--center-x) var(--center-y),
+		#fce7d1,
+		#edc1db,
+		#d5f0e4,
+		#faedd6,
+		#f7dbcf 30%,
+		transparent 70%
+	);
 
-    /* Встановлюємо фоновий градієнт з використанням змінної --gradient */
-    background-image: var(--gradient);
+	/* Встановлюємо фоновий градієнт з використанням змінної --gradient */
+	background-image: var(--gradient);
 }
 
 .specific-bookpage__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    gap: 1rem;
-    grid-template: auto / 1fr 2fr 1fr;
-    grid-template-areas:
-        'coverBook title cart'
-        'coverBook author cart'
-        'coverBook price cart'
-        'coverBook level cart'
-        'coverBook tags cart'
-        'coverBook desc cart';
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	gap: 1rem;
+	grid-template: auto / 1fr 2fr 1fr;
+	grid-template-areas:
+		'coverBook title cart'
+		'coverBook author cart'
+		'coverBook price cart'
+		'coverBook level cart'
+		'coverBook tags cart'
+		'coverBook desc cart';
 }
 
 /*------- book desc -------*/
 
 .book-info__cover {
-    height: fit-content;
-    box-shadow: var(--shadow);
-    grid-area: coverBook;
-    margin-right: 1rem;
+	height: fit-content;
+	width: fit-content;
+	box-shadow: var(--shadow);
+	grid-area: coverBook;
+	margin-right: 1rem;
 }
 
 .book-info__title {
-    width: fit-content;
-    font-size: 1.5rem;
-    font-weight: 700;
-    grid-area: title;
+	width: fit-content;
+	font-size: 1.5rem;
+	font-weight: 700;
+	grid-area: title;
 }
 
 .book-info__author {
-    font-size: 1.1rem;
-    grid-area: author;
+	font-size: 1.1rem;
+	grid-area: author;
 }
 
 .book-info__price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--button-color-active-bg);
-    grid-area: price;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--button-color-active-bg);
+	grid-area: price;
 }
 
 .book-info__level {
-    grid-area: level;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+	grid-area: level;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
 }
 
 .book-info__tags {
-    grid-area: tags;
+	grid-area: tags;
 }
 
-.book-info__tags>ul {
-    all: unset;
-    list-style: none;
-    display: flex;
-    gap: 0.5rem;
+.book-info__tags > ul {
+	all: unset;
+	list-style: none;
+	display: flex;
+	gap: 0.5rem;
 }
 
-.book-info__tags>ul>li,
-.book-info__level>span {
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: var(--shadow);
+.book-info__tags > ul > li,
+.book-info__level > span {
+	padding: 0.5rem;
+	border-radius: 5px;
+	box-shadow: var(--shadow);
 }
 
 .book-info__description {
-    width: 100%;
-    margin-top: 3em;
-    margin-bottom: 1rem;
-    grid-area: desc;
+	width: 100%;
+	margin-top: 3em;
+	margin-bottom: 1rem;
+	grid-area: desc;
 }
 
 .book-info__description-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
 }
 
 .book-info__description_title {
-    font-weight: 700;
-    border-bottom: dashed 1px var(--button-hover-color-bg);
+	font-weight: 700;
+	border-bottom: dashed 1px var(--button-hover-color-bg);
 }
 
 .book-info__description-wrapper span {
-    font-weight: normal;
-    font-size: 0.9rem;
-    cursor: pointer;
-    opacity: 0.8;
-    display: inline-block;
+	font-weight: normal;
+	font-size: 0.9rem;
+	cursor: pointer;
+	opacity: 0.8;
+	display: inline-block;
 }
 
 .book-info__book-order {
-    height: fit-content;
-    border-radius: 5px;
-    padding: 1rem;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    margin-left: 2rem;
-    grid-area: cart;
+	height: fit-content;
+	border-radius: 5px;
+	padding: 1rem;
+	box-shadow: var(--shadow);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	margin-left: 2rem;
+	grid-area: cart;
 }
 
 @media screen and (max-width: 1024px) {
-    .specific-bookpage__container {
-        grid-template: auto / 1fr 1fr 1fr;
-        grid-template-areas:
-            'coverBook title cart'
-            'coverBook author cart'
-            'coverBook price cart'
-            'coverBook level cart'
-            'coverBook tags cart'
-            'desc desc cart';
-    }
+	.specific-bookpage__container {
+		grid-template: auto / 1fr 1fr 1fr;
+		grid-template-areas:
+			'coverBook title cart'
+			'coverBook author cart'
+			'coverBook price cart'
+			'coverBook level cart'
+			'coverBook tags cart'
+			'desc desc cart';
+	}
 }
 
 @media screen and (max-width: 800px) {
-    .specific-bookpage__container {
-        grid-template: auto / 1fr 1fr;
+	.specific-bookpage__container {
+		grid-template: auto / 1fr 1fr;
 
-        grid-template-areas:
-            'title title'
-            'author author'
-            'coverBook coverBook'
-            'price cart'
-            'tags cart'
-            'level cart'
-            'desc desc';
-    }
+		grid-template-areas:
+			'title title'
+			'author author'
+			'coverBook coverBook'
+			'price cart'
+			'tags cart'
+			'level cart'
+			'desc desc';
+	}
 
-    .specific-bookpage__container>*:not(:last-of-type) {
-        margin-bottom: 1.5rem;
-    }
+	.specific-bookpage__container > *:not(:last-of-type) {
+		margin-bottom: 1.5rem;
+	}
 
-    .book-info__title {
-        font-size: 2rem;
-    }
+	.book-info__title {
+		font-size: 2rem;
+	}
 
-    .book-info__author {
-        font-size: 1.3rem;
-    }
+	.book-info__author {
+		font-size: 1.3rem;
+	}
 
-    .book-info__price {
-        font-size: 2rem;
-    }
+	.book-info__price {
+		font-size: 2rem;
+	}
 
-    .book-info__tags>ul,
-    .book-info__level {
-        flex-wrap: wrap;
-    }
+	.book-info__tags > ul,
+	.book-info__level {
+		flex-wrap: wrap;
+	}
 
-    .book-info__book-order {
-        width: 100%;
+	.book-info__book-order {
+		width: 100%;
 
-        place-self: flex-end;
-    }
+		place-self: flex-end;
+	}
 
-    .book-info__cover {
-        margin: 0;
-        max-width: 50%;
-        place-self: center;
-    }
+	.book-info__cover {
+		margin: 0;
+		max-width: 50%;
+		place-self: center;
+	}
 }
 
 @media screen and (max-width: 420px) {
-    .specific-bookpage__container {
-        grid-template: auto / 1fr;
-        gap: 2rem;
-        grid-template-areas:
-            'title'
-            'author'
-            'coverBook'
-            'price'
-            'cart'
-            'tags'
-            'level'
-            'desc';
-    }
+	.specific-bookpage__container {
+		grid-template: auto / 1fr;
+		gap: 2rem;
+		grid-template-areas:
+			'title'
+			'author'
+			'coverBook'
+			'price'
+			'cart'
+			'tags'
+			'level'
+			'desc';
+	}
 
-    .book-info__cover {
-        max-width: 100%;
-    }
+	.book-info__cover {
+		max-width: 100%;
+	}
 
-    .book-info__price {
-        place-self: flex-end;
-        font-size: 1.5rem;
-    }
+	.book-info__price {
+		place-self: flex-end;
+		font-size: 1.5rem;
+	}
 
-    .book-info__description {
-        margin-top: 0;
-    }
+	.book-info__description {
+		margin-top: 0;
+	}
 }
