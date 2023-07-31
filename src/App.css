@@ -174,7 +174,7 @@ section {
 	background: var(--button-hover-color-bg);
 	border-radius: 5px;
 	cursor: pointer;
-	transition: all 0.7s linear;
+	transition: all 0.3s linear;
 	text-align: center;
 	padding: 0.5rem 1rem;
 }
