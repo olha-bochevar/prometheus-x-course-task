@@ -1,179 +1,174 @@
 section.booklist {
-    width: 100%;
-    padding: 3rem 5rem;
-    margin-bottom: 3rem;
-    background-color: var(--background-color);
-}
-
-section.booklist h1 {
-    margin: 3rem 0;
-    font-size: 2rem;
+	width: 100%;
+	padding: 3rem 5rem;
+	margin-bottom: 3rem;
+	background-color: var(--background-color);
 }
 
 .booklist__container {
-    max-width: 1200px;
-    margin: 0 auto;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.booklist__container h1 {
+	margin: 3rem 0;
+	font-size: 2rem;
 }
 
 .booklist__filters {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 5rem;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 5rem;
 }
 
-.booklist__filters>* {
-    padding: 0.5rem 1rem;
+.booklist__filters > * {
+	padding: 0.5rem 1rem;
 }
 
 .booklist__filter-by-name {
-    width: 35%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-left: 40px;
-    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 15px center;
+	width: 35%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	padding-left: 40px;
+	background: transparent
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+		no-repeat 15px center;
 }
 
 .booklist__filter-by-name,
 .booklist__filter-by-name:active,
 .booklist__filter-by-name:focus,
 .booklist__filter-by-name:hover {
-    border: 2px solid transparent;
-    border-image: var(--dark-gradient);
-    border-image-slice: 1;
+	border: 2px solid transparent;
+	border-image: var(--dark-gradient);
+	border-image-slice: 1;
 }
 
 .booklist__filter-by-price {
-    outline: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    border-image: var(--dark-gradient);
-    border-image-slice: 1;
-    width: fit-content;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid transparent;
+	border-image: var(--dark-gradient);
+	border-image-slice: 1;
+	width: fit-content;
 }
 
-.booklist__catalog {}
-
-.book__container {}
-
 .booklist__list {
-    width: 100%;
-    display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(200px, 1fr));
-    place-content: space-evenly;
-    gap: 3rem;
-    justify-items: center;
+	width: 100%;
+	display: grid;
+	grid-template: auto / repeat(auto-fit, minmax(200px, 1fr));
+	place-content: space-evenly;
+	gap: 3rem;
+	justify-items: center;
 }
 
 .book {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: space-between;
-    max-height: 600px;
-    max-width: 250px;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: space-between;
+	max-height: 600px;
+	max-width: 250px;
 }
 
 .book__image-wrapper {
-    width: 215px;
-    aspect-ratio: 3/4;
-    overflow: hidden;
+	width: 215px;
+	aspect-ratio: 3/4;
+	overflow: hidden;
 }
 
 .book__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
-.book__title {}
-
-.book__author {}
-
 .book__info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .book__price {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 .book__link {
-    display: block;
-    width: 50%;
-    background-color: var(--link-color);
-    color: var(--button-color-active-text);
-    text-decoration: none;
-    font-weight: 800;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.7s linear;
-    text-align: center;
+	display: block;
+	width: 50%;
+	background-color: var(--link-color);
+	color: var(--button-color-active-text);
+	text-decoration: none;
+	font-weight: 800;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.7s linear;
+	text-align: center;
 }
 
 .book__link:hover {
-    background-color: var(--link-hover-color);
+	background-color: var(--link-hover-color);
 }
 
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+}
 
 @media screen and (max-width: 800px) {
-    section.booklist {
-        padding: 2rem;
-    }
+	section.booklist {
+		padding: 2rem;
+	}
 
-    .booklist__filters>* {
-        width: 45%;
-    }
+	.booklist__filters > * {
+		width: 45%;
+	}
 
-    .booklist__filter-by-price {
-        all: unset;
-        width: 45%;
-        appearance: auto;
-        border-bottom: 2px solid transparent;
-        border-image: var(--dark-gradient);
-        border-image-slice: 1;
-    }
+	.booklist__filter-by-price {
+		all: unset;
+		width: 45%;
+		appearance: auto;
+		border-bottom: 2px solid transparent;
+		border-image: var(--dark-gradient);
+		border-image-slice: 1;
+	}
 
-    .booklist__list {
-        place-content: space-around;
-    }
+	.booklist__list {
+		place-content: space-around;
+	}
 
-    .book__image-wrapper {
-        width: 100%;
-        align-self: center;
-    }
+	.book__image-wrapper {
+		width: 100%;
+		align-self: center;
+	}
 }
 
 @media screen and (max-width: 680px) {
-    .booklist__filters {
-        flex-direction: column;
-        gap: 2rem;
-    }
+	.booklist__filters {
+		flex-direction: column;
+		gap: 2rem;
+	}
 
-    .booklist__filters>* {
-        width: 70%;
-    }
+	.booklist__filters > * {
+		width: 70%;
+	}
 }
 
 @media screen and (max-width: 420px) {
-    .booklist__filters {
-        margin-bottom: 5rem;
-    }
+	.booklist__filters {
+		margin-bottom: 5rem;
+	}
 
-    .booklist__filters>* {
-        width: 100%;
-    }
+	.booklist__filters > * {
+		width: 100%;
+	}
 
-    .booklist__list {
-        grid-template: auto / repeat(auto-fit, minmax(250px, 50%));
-    }
+	.booklist__list {
+		grid-template: auto / repeat(auto-fit, minmax(250px, 50%));
+	}
 }

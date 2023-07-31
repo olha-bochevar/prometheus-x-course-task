@@ -40,7 +40,8 @@ export function AddToCart({ value: { price, amount, id } }) {
 
 	useEffect(() => {
 		if (amountToBuy <= amount && amountToBuy > 0) {
-			setTotalPrice((amountToBuy * price).toFixed(2) || price);
+			setTotalPrice((amountToBuy * price).toFixed(2));
+			console.log(amountToBuy, price, totalPrice);
 		}
 	}, [price, amountToBuy]);
 
@@ -91,7 +92,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 							value={amountToBuy}
 							onInput={handleInputCountValue}
 							data-testid="amount"
-							title={`Max quantity - ${amount}`}
+							title={`The maximum possible quantity is ${amount} pieces`}
 						/>
 					</ChangeAmountOfBook>
 				</div>

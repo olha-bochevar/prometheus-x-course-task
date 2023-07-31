@@ -44,8 +44,8 @@ export function BookList() {
 
 	return (
 		<section className="booklist">
-			<h1>Hello! Please, start to choose your book!</h1>
 			<div className="booklist__container">
+				<h1>Hello! Please, start to choose your book!</h1>
 				<div className="booklist__filters">
 					<input
 						type="text"
@@ -87,7 +87,11 @@ export function BookList() {
 								<p className="book__author">{book?.author}</p>
 								<div className="book__info">
 									<span className="book__price">{`${book?.price}$`}</span>
-									<Link to={`/book/${book?.id}`} className="book__link">
+									<Link
+										to={`/book/${book?.id}`}
+										className="book__link"
+										touchstart
+									>
 										View
 									</Link>
 								</div>
