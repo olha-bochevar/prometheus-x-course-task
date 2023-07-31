@@ -164,9 +164,6 @@ header.header {
 	.logo-content > p > * {
 		font-size: 1rem;
 	}
-
-	.user-profile__cart-icon > sup {
-	}
 }
 
 @media screen and (max-width: 420px) {

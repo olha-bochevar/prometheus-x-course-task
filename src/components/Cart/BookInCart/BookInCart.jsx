@@ -57,14 +57,14 @@ export function BookInCart(props) {
 				<div className="book-item__info">
 					<p className="book-item__title">{title}</p>
 					<p className="book-item__author">{author}</p>
-					<span className="book-item__price">{price}</span>
+					<span className="book-item__price">{`$ ${price}`}</span>
 				</div>
 
 				<ChangeAmountOfBook value={{ addOneBook, deleteOneBook }}>
 					<span className="book-item__quantity">{quantity}</span>
 				</ChangeAmountOfBook>
 				<p className="book-item__total-price">
-					{(price * quantity).toFixed(2)}
+					{`$ ${(price * quantity).toFixed(2)}`}
 				</p>
 				<button
 					className="book-item__btn"

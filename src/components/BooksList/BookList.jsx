@@ -86,7 +86,7 @@ export function BookList() {
 								</h3>
 								<p className="book__author">{book?.author}</p>
 								<div className="book__info">
-									<span className="book__price">{`${book?.price}$`}</span>
+									<span className="book__price">{`$${book?.price}`}</span>
 									<Link
 										to={`/book/${book?.id}`}
 										className="book__link"

@@ -56,7 +56,7 @@ export function CartWithBooks() {
 			<div className="books-to-buy__purchase purchase-block">
 				<div className="purchase-block__container">
 					<p className="purchase-block__text-content">
-						Total <span>{totalCost}</span>
+						Total <span>{`$ ${totalCost}`}</span>
 					</p>
 					<button
 						ref={btnRef}

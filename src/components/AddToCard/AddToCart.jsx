@@ -4,7 +4,6 @@ import { useBooks } from '../../hooks/BooksContext';
 
 import './AddToCart.css';
 import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
-import { TouchableButton } from '../TouchableButton/TouchableButton';
 
 export function AddToCart({ value: { price, amount, id } }) {
 	const { cart, setCart } = useBooks();
@@ -98,19 +97,19 @@ export function AddToCart({ value: { price, amount, id } }) {
 					</ChangeAmountOfBook>
 				</div>
 				<div className="book-order__total">
-					<span>Total price</span>
+					<span>Total price, $</span>
 					<span className="book-order__total-price" data-testid="total-price">
 						{totalPrice}
 					</span>
 				</div>
-				<TouchableButton onClick={addToCart}>Add to cart</TouchableButton>
-				{/* <button
+
+				<button
 					type="submit"
 					className="button book-order__btn"
 					onClick={addToCart}
 				>
 					Add to cart
-				</button> */}
+				</button>
 			</div>
 		</section>
 	);
