@@ -90,7 +90,7 @@ export function BookList() {
 									<Link
 										to={`/book/${book?.id}`}
 										className="book__link"
-										touchstart
+										touchstart="true"
 									>
 										View
 									</Link>
