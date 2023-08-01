@@ -104,7 +104,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 				<button
 					type="submit"
 					className="button book-order__btn"
-					onClick={addToCart}
+					onClick={(e) => addToCart(e)}
 				>
 					Add to cart
 				</button>
