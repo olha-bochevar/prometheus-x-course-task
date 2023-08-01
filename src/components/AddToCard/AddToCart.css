@@ -13,7 +13,8 @@
 
 .book-order__price,
 .book-order__amount,
-.book-order__total {
+.book-order__total,
+.book-order__books-in-stock {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -34,10 +35,23 @@
 	position: relative;
 }
 
+.book-order__books-in-stock {
+	font-size: 0.9rem;
+	opacity: 0.8;
+	margin-top: -0.5rem;
+}
+
 .book-order__btn {
 	margin-top: 1em;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.book-order__btn:disabled,
+.book-order__btn:disabled:hover {
+	background: var(--button-hover-color-bg);
+	opacity: 0.7;
+	cursor: not-allowed;
 }

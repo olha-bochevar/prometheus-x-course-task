@@ -179,10 +179,6 @@ section {
 }
 
 @media screen and (min-width: 1024px) {
-	html {
-		font-size: 14px;
-	}
-
 	.button:hover,
 	.button:active,
 	.button:focus {
@@ -198,14 +194,15 @@ section {
 	}
 }
 
-@media screen and(max-width: 800px) {
-	.button:active,
-	.button:focus {
-		opacity: 0.9;
-		background: var(--dark-gradient);
-		cursor: pointer;
-	}
-}
+/* @media screen and(max-width: 800px) {
+
+    .button:active,
+    .button:focus {
+        opacity: 0.9;
+        background: var(--dark-gradient);
+        cursor: pointer;
+    }
+} */
 
 @media screen and (max-width: 420px) {
 	html {
