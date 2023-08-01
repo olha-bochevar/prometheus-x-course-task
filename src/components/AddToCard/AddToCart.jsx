@@ -9,7 +9,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 	const { cart, setCart } = useBooks();
 
 	const [amountToBuy, setAmountToBuy] = useState(1);
-	const [booksLeft, setBooksLeft] = useState(42);
+	const [booksLeft] = useState(amount);
 
 	const [totalPrice, setTotalPrice] = useState(
 		(price * amountToBuy).toFixed(2)
@@ -71,17 +71,12 @@ export function AddToCart({ value: { price, amount, id } }) {
 		// випадок №1
 		if (!existingBook) {
 			btnRef.current.disabled = false;
-			setBooksLeft(amount);
 		} // випадок №2
 		else if (existingBook?.quantity + amountToBuy <= amount) {
 			btnRef.current.disabled = false;
-			/* const booksInStock = amount - existingBook.quantity;
-			setBooksLeft(booksInStock); */
 		} // випадок №3
 		else {
 			btnRef.current.disabled = true;
-			/* const booksInStock = amount - existingBook.quantity;
-			setBooksLeft(booksInStock); */
 		}
 	}, [amountToBuy, cart, id]);
 
@@ -89,6 +84,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 		e.preventDefault();
 
 		const existingBook = cart.find((book) => book.id === id);
+
 		// якщо товар вже є в корзині, збільшуємо його кількість
 		if (existingBook) {
 			const updatedItems = cart.map((item) => {
@@ -130,7 +126,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 					</ChangeAmountOfBookButtons>
 				</div>
 				<div className="book-order__books-in-stock">
-					<span>Books left in stock:</span>
+					<span>Books in stock:</span>
 					<span> {booksLeft}</span>
 				</div>
 				<div className="book-order__total">
