@@ -105,7 +105,6 @@ export function AddToCart({ value: { price, amount, id } }) {
 					type="submit"
 					className="button book-order__btn"
 					onClick={addToCart}
-					onTouchStart={addToCart}
 				>
 					Add to cart
 				</button>
