@@ -180,7 +180,7 @@ section {
 
 .button:hover {
 	opacity: 0.9;
-	/*  background: var(--dark-gradient); */
+	background: var(--dark-gradient);
 }
 
 @media screen and (max-width: 1024px) {

@@ -7,7 +7,7 @@ describe('AddToCart Component', () => {
 		value: { price: 10.0, amount: 20, id: 1 },
 	};
 
-	it('should increase the amount after clicking on the increase button', () => {
+	test('should increase the amount after clicking on the increase button', () => {
 		const { getByTestId } = render(
 			<BooksProvider>
 				<AddToCart {...bookData} />
@@ -21,7 +21,7 @@ describe('AddToCart Component', () => {
 		expect(amountInput.value).toBe('2');
 	});
 
-	it('should decrease the amount after clicking the decrease button', () => {
+	test('should decrease the amount after clicking the decrease button', () => {
 		const { getByTestId } = render(
 			<BooksProvider>
 				<AddToCart {...bookData} />
@@ -39,7 +39,7 @@ describe('AddToCart Component', () => {
 		expect(amountInput.value).toBe('2');
 	});
 
-	it('should update totalPrice when amountToBuy changes', () => {
+	test('should update totalPrice when amountToBuy changes', () => {
 		const { getByTestId } = render(
 			<BooksProvider>
 				<AddToCart {...bookData} />
