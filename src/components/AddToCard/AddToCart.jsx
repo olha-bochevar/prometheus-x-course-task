@@ -75,13 +75,13 @@ export function AddToCart({ value: { price, amount, id } }) {
 		} // випадок №2
 		else if (existingBook?.quantity + amountToBuy <= amount) {
 			btnRef.current.disabled = false;
-			const booksInStock = amount - existingBook.quantity;
-			setBooksLeft(booksInStock);
+			/* const booksInStock = amount - existingBook.quantity;
+			setBooksLeft(booksInStock); */
 		} // випадок №3
 		else {
 			btnRef.current.disabled = true;
-			const booksInStock = amount - existingBook.quantity;
-			setBooksLeft(booksInStock);
+			/* const booksInStock = amount - existingBook.quantity;
+			setBooksLeft(booksInStock); */
 		}
 	}, [amountToBuy, cart, id]);
 

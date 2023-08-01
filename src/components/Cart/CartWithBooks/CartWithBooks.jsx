@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useBooks } from '../../../hooks/BooksContext';
 import { BookInCart } from '../BookInCart/BookInCart';
+import { Modal } from './../Modal/Modal';
 import './CartWithBooks.css';
 
 export function CartWithBooks() {
 	const { books, cart, setCart, cartAmountToBuy } = useBooks();
 	const [booksToBuy, setBooksToBuy] = useState([]);
 	const [totalCost, setTotalCost] = useState(0);
+
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		const total = cart.reduce(
@@ -31,36 +34,43 @@ export function CartWithBooks() {
 	}, [cart, books]);
 
 	const purchaseBooks = () => {
-		setCart([]);
+		setShowModal(true);
+		setTimeout(() => {
+			setCart([]);
+		}, 1000);
 	};
-
+	console.log(showModal);
 	return (
-		<div className="cart__books-to-buy books-to-buy">
-			<h2>
-				You have {cartAmountToBuy > 1 ? `${cartAmountToBuy} books` : `1 book`}{' '}
-				in your cart
-			</h2>
+		<>
+			<div className="cart__books-to-buy books-to-buy">
+				<h2>
+					You have {cartAmountToBuy > 1 ? `${cartAmountToBuy} books` : `1 book`}{' '}
+					in your cart
+				</h2>
 
-			<div>
-				<ul className="books-to-buy__list">
-					{booksToBuy.map((book) => (
-						<BookInCart key={book?.id} id={book.id} value={book} />
-					))}
-				</ul>
-			</div>
-			<div className="books-to-buy__purchase purchase-block">
-				<div className="purchase-block__container">
-					<p className="purchase-block__text-content">
-						Total <span>{`$ ${totalCost}`}</span>
-					</p>
-					<button
-						onClick={purchaseBooks}
-						className="button purchase-block__button"
-					>
-						Purchase
-					</button>
+				<div>
+					<ul className="books-to-buy__list">
+						{booksToBuy.map((book) => (
+							<BookInCart key={book?.id} id={book.id} value={book} />
+						))}
+					</ul>
+				</div>
+				<div className="books-to-buy__purchase purchase-block">
+					<div className="purchase-block__container">
+						<p className="purchase-block__text-content">
+							Total <span>{`$ ${totalCost}`}</span>
+						</p>
+						<button
+							onClick={purchaseBooks}
+							className="button purchase-block__button"
+						>
+							Purchase
+						</button>
+					</div>
 				</div>
 			</div>
-		</div>
+
+			{showModal && <Modal />}
+		</>
 	);
 }

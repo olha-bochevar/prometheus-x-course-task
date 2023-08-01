@@ -32,7 +32,7 @@
 	}
 
 	.empty-cart__link {
-		width: 75%;
+		width: max-content;
 	}
 }
 

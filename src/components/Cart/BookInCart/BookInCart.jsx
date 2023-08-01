@@ -58,7 +58,7 @@ export function BookInCart(props) {
 				<span className="book-item__quantity">{quantity}</span>
 			</ChangeAmountOfBookButtons>
 			<p className="book-item__total-price">
-				{`$ ${(price * quantity).toFixed(2)}`}
+				{`$${(price * quantity).toFixed(2)}`}
 			</p>
 			<button className="book-item__btn" onClick={removeItemFromCart}></button>
 		</li>
