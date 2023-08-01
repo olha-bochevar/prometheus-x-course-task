@@ -178,9 +178,12 @@ section {
 	padding: 0.5rem 1rem;
 }
 
-.button:hover {
+.button:hover,
+.button:active,
+.button:focus {
 	opacity: 0.9;
 	background: var(--dark-gradient);
+	cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
