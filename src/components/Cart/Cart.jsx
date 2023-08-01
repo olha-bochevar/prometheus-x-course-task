@@ -1,6 +1,5 @@
 import { useBooks } from '../../hooks/BooksContext';
 import { CartWithBooks } from './CartWithBooks/CartWithBooks';
-//import { BookInCart } from './BookInCart';
 import { EmptyCart } from './EmptyCart/EmptyCart';
 
 import './Cart.css';

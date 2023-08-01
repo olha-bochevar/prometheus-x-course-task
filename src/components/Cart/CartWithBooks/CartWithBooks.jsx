@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useBooks } from '../../../hooks/BooksContext';
 import { BookInCart } from '../BookInCart/BookInCart';
 import './CartWithBooks.css';
@@ -7,6 +7,7 @@ export function CartWithBooks() {
 	const { books, cart, setCart, cartAmountToBuy } = useBooks();
 	const [booksToBuy, setBooksToBuy] = useState([]);
 	const [totalCost, setTotalCost] = useState(0);
+
 	useEffect(() => {
 		const total = cart.reduce(
 			(acc, curr) => acc + curr.price * curr.quantity,
@@ -22,18 +23,12 @@ export function CartWithBooks() {
 				if (foundBook) {
 					return { ...foundBook, quantity: bookInCart.quantity };
 				}
-				return null; // Обробка випадку, якщо книга не знайдена
+				return null; // якщо книга не знайдена
 			})
-			.filter((book) => book !== null); // Видалення елементів зі значенням null
+			.filter((book) => book !== null); // видалення елементів зі значенням null
 
 		setBooksToBuy(tempBooks);
 	}, [cart, books]);
-
-	const btnRef = useRef(null);
-
-	useEffect(() => {
-		btnRef.current.disabled = cart.length === 0;
-	}, [cart]);
 
 	const purchaseBooks = () => {
 		setCart([]);
@@ -59,7 +54,6 @@ export function CartWithBooks() {
 						Total <span>{`$ ${totalCost}`}</span>
 					</p>
 					<button
-						ref={btnRef}
 						onClick={purchaseBooks}
 						className="button purchase-block__button"
 					>

@@ -5,7 +5,7 @@ import './BackToCatalogPage.css';
 export function BackToCatalogPage() {
 	return (
 		<Link to="/" className="link-home" title="Go for more books">
-			<img src={home} alt="Go to home" />
+			<img src={home} alt="Go home" />
 			Go for more books
 		</Link>
 	);

@@ -10,19 +10,10 @@ import {
 
 import { useAuth } from './hooks/AuthContext';
 import './App.css';
-import { useBooks } from './hooks/BooksContext';
-import { useEffect } from 'react';
 import { Header } from './components/Header/Header';
 
 function App() {
 	const { isLoggedIn } = useAuth();
-	const { cart, setCartAmountToBuy } = useBooks();
-
-	useEffect(() => {
-		if (cart.length === 0) {
-			setCartAmountToBuy(0);
-		}
-	}, [cart]);
 
 	return (
 		<HashRouter>

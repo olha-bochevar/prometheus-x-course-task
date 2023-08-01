@@ -1,8 +1,8 @@
 import addBook from './../../assets/images/add.png';
 import deleteBook from './../../assets/images/delete.png';
-import './ChangeAmountOfBooks.css';
+import './ChangeAmountOfBookButtons.css';
 
-export function ChangeAmountOfBook({ value, children }) {
+export function ChangeAmountOfBookButtons({ value, children }) {
 	const { deleteOneBook, addOneBook } = value;
 	return (
 		<div className="quantity-block" data-testid="quantity">

@@ -1,0 +1,45 @@
+.quantity-block {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.quantity-block__btn {
+	width: 25px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.quantity-block__btn::after {
+	content: '';
+	width: 20px;
+	height: 20px;
+
+	background-size: cover;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.quantity-block__btn_add::after {
+	background-image: url('./../../assets/images/add.png');
+}
+
+.quantity-block__btn_remove::after {
+	background-image: url('./../../assets/images/delete.png');
+}
+
+@media screen and (max-width: 800px) {
+	.quantity-block {
+		grid-area: quantity-block;
+		justify-self: flex-start;
+	}
+
+	.quantity-block > .book-item__btn {
+		align-self: center;
+	}
+}

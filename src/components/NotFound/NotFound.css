@@ -1,87 +1,87 @@
 .not-found-page {
-    flex: 1 1 auto;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding-top: 100px;
+	flex: 1 1 auto;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding-top: 100px;
 }
 
 .not-found-page__container {
-    padding: 0 3rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 1rem;
+	padding: 0 3rem;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 1rem;
 }
 
 .not-found-page__visual-content {
-    flex: 0 1 25%;
-    color: var(--button-hover-color-bg);
-    text-align: right;
+	flex: 0 1 25%;
+	color: var(--button-hover-color-bg);
+	text-align: right;
 }
 
 .not-found-page__error {
-    display: inline-block;
-    font-size: 12rem;
+	display: inline-block;
+	font-size: 12rem;
 }
 
 .not-found-page__text-content {
-    flex: 0 1 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+	flex: 0 1 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 .not-found-page__title {
-    font-size: 2rem;
+	font-size: 2rem;
 }
 
 a.not-found-page__link-home {
-    padding: 10px 30px;
-
-    font-weight: 600;
-    font-size: 1.1rem;
-
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	max-width: max-content;
+	padding: 10px 30px;
+	font-weight: 600;
+	font-size: 1.1rem;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 @media screen and (max-width: 1024px) {
-    .not-found-page__container {
-        gap: 3rem;
-    }
+	.not-found-page__container {
+		gap: 3rem;
+	}
 
-    .not-found-page__visual-content {
-        flex: 0 1 40%;
-    }
+	.not-found-page__visual-content {
+		flex: 0 1 40%;
+	}
 }
 
 @media screen and (max-width: 800px) {
-    .not-found-page__container {
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: unset;
-    }
+	.not-found-page__container {
+		flex-direction: column;
+		gap: 1rem;
+		justify-content: center;
+		align-items: unset;
+	}
 
-    .not-found-page__visual-content {
-        text-align: left;
-    }
+	.not-found-page__visual-content {
+		text-align: left;
+		flex: 0 1 20%;
+	}
 
-    .not-found-page__error {
-        font-size: 8rem;
-    }
+	.not-found-page__error {
+		font-size: 8rem;
+	}
 
-    .not-found-page__text-content {
-        gap: 1.5rem;
-    }
+	.not-found-page__text-content {
+		gap: 1.5rem;
+	}
 }
 
 @media screen and (max-width: 420px) {
-    .not-found-page__error {
-        font-size: 5rem;
-    }
+	.not-found-page__error {
+		font-size: 5rem;
+	}
 
-    a.not-found-page__link-home {
-        width: 100%;
-    }
+	a.not-found-page__link-home {
+		width: 100%;
+	}
 }

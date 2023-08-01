@@ -104,7 +104,6 @@ button {
 :root {
 	--background-color: #ffffff;
 
-	/* Gradient */
 	--gradient: -webkit-linear-gradient(
 		60deg,
 		#fce7d1,
@@ -181,7 +180,7 @@ section {
 
 .button:hover {
 	opacity: 0.9;
-	background: var(--dark-gradient);
+	/*  background: var(--dark-gradient); */
 }
 
 @media screen and (max-width: 1024px) {

@@ -15,8 +15,8 @@ export function BookList() {
 	const handleSearchInputValue = ({ target: { value } }) => {
 		setSearch(value);
 	};
-	const handleChangeFilterPrice = (event) => {
-		setFilterPrice(event.target.value);
+	const handleChangeFilterPrice = ({ target: { value } }) => {
+		setFilterPrice(value);
 	};
 	const filteredBooksByPrice = books.filter((book) => {
 		switch (filterPrice) {
@@ -37,7 +37,7 @@ export function BookList() {
 		book.title.toLowerCase().includes(search.toLowerCase())
 	);
 
-	// для max-width : 420px будемо показувати повну назву, для більших екранів - скорочуємо назву до 24 символів
+	// для max-width:420px будемо показувати повну назву, для більших екранів - скорочуємо назву до 24 символів
 	const sliceNameOfBook = (title) => {
 		return title.length > 24 ? title.substring(0, 24).concat('...') : title;
 	};
@@ -59,7 +59,7 @@ export function BookList() {
 						onChange={handleChangeFilterPrice}
 						className="booklist__filter-by-price"
 					>
-						<option value="all" key="">
+						<option value="all" key="all">
 							All
 						</option>
 						<option value="<15" key="15">{`0$ < price < 15$`}</option>

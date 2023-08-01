@@ -3,47 +3,45 @@ import { useEffect, useState } from 'react';
 import { useBooks } from '../../hooks/BooksContext';
 
 import './AddToCart.css';
-import { ChangeAmountOfBook } from '../ChangeAmountOfBook/ChangeAmountOfBook';
+import { ChangeAmountOfBookButtons } from '../ChangeAmountOfBookButtons/ChangeAmountOfBookButtons';
 
 export function AddToCart({ value: { price, amount, id } }) {
 	const { cart, setCart } = useBooks();
 
 	const [amountToBuy, setAmountToBuy] = useState(1);
 
-	const [totalPrice, setTotalPrice] = useState();
+	const [totalPrice, setTotalPrice] = useState(
+		(price * amountToBuy).toFixed(2)
+	);
 
 	const handleInputCountValue = ({ target: { value } }) => {
-		if (value < 1 || value > amount) {
-			setAmountToBuy(1);
+		if (value >= 1 && value <= amount) {
+			setAmountToBuy(+value);
+			// для введення значення з клавіатури з повним видаленням value перед цим
+		} else if (value == '') {
+			setAmountToBuy('');
 		} else {
-			setAmountToBuy(+value || '');
+			setAmountToBuy(1);
 		}
 	};
 
-	const updateValueOfAmountInputFromCart = () => {
-		return cart.filter((book) => book.id == id).map((book) => book.quantity);
+	const getAmountOfBookInCart = () => {
+		const book = cart.find((book) => book.id == id);
+		return book.quantity;
 	};
-	useEffect(() => {
-		if (cart.find((book) => book.id === id)) {
-			const value = updateValueOfAmountInputFromCart();
-			setAmountToBuy(value);
-		}
-	}, [cart]);
 
 	useEffect(() => {
 		if (cart.find((book) => book.id === id)) {
-			setAmountToBuy(
-				cart.filter((book) => book.id == id).map((book) => book.quantity)
-			);
+			const amountInCart = getAmountOfBookInCart();
+			setAmountToBuy(amountInCart);
 		} else setAmountToBuy(1);
-	}, [id]);
+	}, [id, cart]);
 
 	useEffect(() => {
-		if (amountToBuy <= amount && amountToBuy > 0) {
+		if (amountToBuy > 0 && amountToBuy <= amount) {
 			setTotalPrice((amountToBuy * price).toFixed(2));
-			console.log(amountToBuy, price, totalPrice);
 		}
-	}, [price, amountToBuy]);
+	}, [amountToBuy]);
 
 	const addOneBook = () => {
 		setAmountToBuy((prev) => (prev < amount ? +prev + 1 : amount));
@@ -57,7 +55,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 
 		const existingBook = cart.find((book) => book.id === id);
 		if (existingBook) {
-			// Якщо товар вже є в корзині, збільшуємо його кількість
+			// якщо товар вже є в корзині, збільшуємо його кількість
 			const updatedItems = cart.map((item) => {
 				if (item.id === id) {
 					return { ...item, quantity: item.quantity + Number(amountToBuy) };
@@ -66,7 +64,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 			});
 			setCart(updatedItems);
 		} else {
-			// Якщо товару немає в корзині, додаємо
+			// якщо товару немає в корзині, додаємо
 			const newItem = { id: id, quantity: Number(amountToBuy), price: price };
 			setCart([...cart, newItem]);
 		}
@@ -82,7 +80,7 @@ export function AddToCart({ value: { price, amount, id } }) {
 				<div className="book-order__amount">
 					<label htmlFor="book-count">Count</label>
 
-					<ChangeAmountOfBook value={{ addOneBook, deleteOneBook }}>
+					<ChangeAmountOfBookButtons value={{ addOneBook, deleteOneBook }}>
 						<input
 							type="number"
 							className="book-order__count"
@@ -90,11 +88,11 @@ export function AddToCart({ value: { price, amount, id } }) {
 							min={1}
 							max={amount}
 							value={amountToBuy}
-							onInput={handleInputCountValue}
+							onChange={handleInputCountValue}
 							data-testid="amount"
 							title={`The maximum possible quantity is ${amount} pieces`}
 						/>
-					</ChangeAmountOfBook>
+					</ChangeAmountOfBookButtons>
 				</div>
 				<div className="book-order__total">
 					<span>Total price, $</span>

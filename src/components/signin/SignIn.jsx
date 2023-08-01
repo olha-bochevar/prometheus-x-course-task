@@ -9,13 +9,15 @@ export function SignIn() {
 	const { login } = useAuth();
 	const [username, setUsername] = useState('');
 	const btnRef = useRef(null);
+
 	useEffect(() => {
 		btnRef.current.disabled = true;
 	}, []);
-	const handleInputUsernameValue = (event) => {
-		setUsername(event.target.value);
 
-		if (event.target.value.length < 4 || event.target.value.length > 16) {
+	const handleInputUsernameValue = ({ target: { value } }) => {
+		setUsername(value);
+
+		if (value.length < 4 || value.length > 16) {
 			btnRef.current.disabled = true;
 		} else {
 			btnRef.current.disabled = false;

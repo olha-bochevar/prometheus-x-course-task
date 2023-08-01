@@ -36,7 +36,7 @@ export function Header() {
 						href="https://github.com/olha-bochevar"
 						target="_blank"
 						title="Go to Github's profile"
-						rel="noreferrer"
+						rel="noreferrer noopener"
 					>
 						/ Olha Bochevar
 					</a>
