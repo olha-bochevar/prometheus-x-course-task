@@ -39,7 +39,7 @@ export function CartWithBooks() {
 			setCart([]);
 		}, 1000);
 	};
-	console.log(showModal);
+	
 	return (
 		<>
 			<div className="cart__books-to-buy books-to-buy">
