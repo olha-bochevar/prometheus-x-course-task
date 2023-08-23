@@ -39,7 +39,6 @@ export function CartWithBooks() {
 			setCart([]);
 		}, 1000);
 	};
-
 	return (
 		<>
 			<div className="cart__books-to-buy books-to-buy">
