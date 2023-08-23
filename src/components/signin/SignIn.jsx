@@ -15,7 +15,7 @@ export function SignIn() {
 	}, []);
 
 	const handleInputUsernameValue = ({ target: { value } }) => {
-		setUsername(value);
+		setUsername(value.trim());
 
 		if (value.length < 4 || value.length > 16) {
 			btnRef.current.disabled = true;
