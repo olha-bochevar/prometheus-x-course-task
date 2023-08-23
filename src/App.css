@@ -194,16 +194,6 @@ section {
 	}
 }
 
-/* @media screen and(max-width: 800px) {
-
-    .button:active,
-    .button:focus {
-        opacity: 0.9;
-        background: var(--dark-gradient);
-        cursor: pointer;
-    }
-} */
-
 @media screen and (max-width: 420px) {
 	html {
 		font-size: 15px;

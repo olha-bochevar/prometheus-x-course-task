@@ -113,7 +113,7 @@
 	border-bottom: dashed 1px var(--button-hover-color-bg);
 }
 
-.book-info__description-wrapper span {
+.book-info__description-wrapper button {
 	font-weight: normal;
 	font-size: 0.9rem;
 	cursor: pointer;

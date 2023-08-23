@@ -1,4 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { AddToCart } from './../components/AddToCard/AddToCart';
 import { BooksProvider } from './../hooks/BooksContext';
 
@@ -15,7 +16,7 @@ describe('AddToCart Component', () => {
 		);
 
 		const increaseButton = getByTestId('increase-btn');
-		fireEvent.click(increaseButton);
+		userEvent.click(increaseButton);
 
 		const amountInput = getByTestId('amount');
 		expect(amountInput.value).toBe('2');
@@ -29,11 +30,11 @@ describe('AddToCart Component', () => {
 		);
 
 		const increaseButton = getByTestId('increase-btn');
-		fireEvent.click(increaseButton);
-		fireEvent.click(increaseButton);
+		userEvent.click(increaseButton);
+		userEvent.click(increaseButton);
 
 		const decreaseButton = getByTestId('decrease-btn');
-		fireEvent.click(decreaseButton);
+		userEvent.click(decreaseButton);
 
 		const amountInput = getByTestId('amount');
 		expect(amountInput.value).toBe('2');

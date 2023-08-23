@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useBooks } from '../../hooks/BooksContext';
 import { AddToCart } from '../AddToCard/AddToCart';
-import { BackToCatalogPage } from './../BackToCatalogPage/BackToCatalogPage';
+import { BackToCatalogPage } from '../BackToCatalogPage/BackToCatalogPage';
 import './SpecificBook.css';
 import imageNotFound from './../../assets/images/imageNotFound.png';
 import { BackToTopButton } from '../BackToTopButton/BackToTopButton';
@@ -37,11 +37,7 @@ export function SpecificBook() {
 		return <p>Loading...</p>; // Може бути також порожній фрагмент: `return null;`
 	}
 
-	const showFullDesc = (e) => {
-		e.target.textContent = isShownFullDesc
-			? `Show full description`
-			: `Show short description`;
-
+	const showFullDesc = () => {
 		setIsShownFullDesc(!isShownFullDesc);
 	};
 
@@ -68,7 +64,11 @@ export function SpecificBook() {
 				<div className="book-info__description">
 					<div className="book-info__description-wrapper">
 						<p className="book-info__description_title">Description</p>
-						<span onClick={showFullDesc}>Show full description</span>
+						<button onClick={showFullDesc}>
+							{isShownFullDesc
+								? 'Show full description'
+								: 'Show short description'}
+						</button>
 					</div>
 
 					<p>{isShownFullDesc ? description : shortDescription}</p>
