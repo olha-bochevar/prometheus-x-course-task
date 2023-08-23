@@ -3,7 +3,18 @@ import deleteBook from './../../assets/images/delete.png';
 import './ChangeAmountOfBookButtons.css';
 
 export function ChangeAmountOfBookButtons({ value, children }) {
-	const { deleteOneBook, addOneBook } = value;
+	const { deleteOneBook, addOneBook, amount, quantity } = value;
+
+	const handleAddClick = () => {
+		// якщо з батьківського елементу передається quantity, то передивляємось amount
+		if (quantity && quantity < amount) {
+			addOneBook();
+		}
+		// якщо не передається, значить, там прописані власні методи перевірки на кількість
+		if (quantity == undefined) {
+			addOneBook();
+		}
+	};
 	return (
 		<div className="quantity-block" data-testid="quantity">
 			<button
@@ -16,7 +27,8 @@ export function ChangeAmountOfBookButtons({ value, children }) {
 			{children}
 			<button
 				className="quantity-block__btn quantity-block__btn_add"
-				onClick={addOneBook}
+				onClick={handleAddClick}
+				disabled={quantity >= amount}
 				data-testid="increase-btn"
 			>
 				<img src={addBook} alt="Add book to the cart" />

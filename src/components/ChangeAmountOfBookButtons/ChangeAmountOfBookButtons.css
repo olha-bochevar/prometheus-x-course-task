@@ -33,6 +33,10 @@
 	background-image: url('./../../assets/images/delete.png');
 }
 
+.quantity-block__btn_add:disabled {
+	cursor: not-allowed;
+}
+
 @media screen and (max-width: 800px) {
 	.quantity-block {
 		grid-area: quantity-block;

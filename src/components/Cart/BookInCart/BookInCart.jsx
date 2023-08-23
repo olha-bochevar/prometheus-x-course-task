@@ -10,7 +10,7 @@ export function BookInCart(props) {
 
 	const bookRef = useRef(null);
 
-	const { title, author, image, price, quantity, id } = props.value;
+	const { title, author, image, price, quantity, id, amount } = props.value;
 
 	const removeItemFromCart = () => {
 		const tempCart = cart.filter((book) => book.id !== id);
@@ -54,7 +54,9 @@ export function BookInCart(props) {
 				<span className="book-item__price">{`$ ${price}`}</span>
 			</div>
 
-			<ChangeAmountOfBookButtons value={{ addOneBook, deleteOneBook }}>
+			<ChangeAmountOfBookButtons
+				value={{ addOneBook, deleteOneBook, amount, quantity }}
+			>
 				<span className="book-item__quantity">{quantity}</span>
 			</ChangeAmountOfBookButtons>
 			<p className="book-item__total-price">

@@ -111,7 +111,9 @@ export function AddToCart({ value: { price, amount, id } }) {
 				<div className="book-order__amount">
 					<label htmlFor="book-count">Count</label>
 
-					<ChangeAmountOfBookButtons value={{ addOneBook, deleteOneBook }}>
+					<ChangeAmountOfBookButtons
+						value={{ addOneBook, deleteOneBook, amount, amountToBuy }}
+					>
 						<input
 							type="number"
 							className="book-order__count"
