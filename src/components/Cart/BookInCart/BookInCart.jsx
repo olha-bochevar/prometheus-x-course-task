@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import './BookInCart.css';
 
 import imageNotFound from './../../../assets/images/imageNotFound.png';
@@ -7,8 +6,6 @@ import { ChangeAmountOfBookButtons } from '../../ChangeAmountOfBookButtons/Chang
 
 export function BookInCart(props) {
 	const { cart, setCart } = useBooks();
-
-	const bookRef = useRef(null);
 
 	const { title, author, image, price, quantity, id, amount } = props.value;
 
@@ -42,7 +39,7 @@ export function BookInCart(props) {
 	};
 
 	return (
-		<li ref={bookRef} className="books-to-buy__item book-item">
+		<li className="books-to-buy__item book-item">
 			<img
 				src={image ? image : imageNotFound}
 				alt="Book`s cover"
